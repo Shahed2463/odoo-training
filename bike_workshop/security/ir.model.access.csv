@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bike_workshop_staff,access_bike_workshop_staff,model_bike_workshop,bike_workshop.group_bike_workshop_staff,1,1,1,1
