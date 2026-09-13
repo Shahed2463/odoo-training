@@ -8,6 +8,7 @@ class BikeServiceMixin(models.AbstractModel):
     assigned_mechanic = fields.Many2one(
         "res.users",
         string="Assigned Mechanic",
+        domain="[('partner_id.category_id.name', '=', 'Mechanic')]",
     )
 
     last_service_date = fields.Date(

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- ==================== REPAIR LIST VIEW ==================== -->
+
+        <record id="view_bike_repair_list" model="ir.ui.view">
+            <field name="name">bike.repair.list</field>
+            <field name="model">bike.repair</field>
+            <field name="arch" type="xml">
+                <list
+                    string="Repair Jobs"
+                    decoration-info="state == 'draft'"
+                    decoration-warning="state == 'in_progress'"
+                    decoration-success="state == 'completed'"
+                    decoration-danger="state == 'cancelled'"
+                >
+                    <field name="name"/>
+                    <field name="customer_id"/>
+                    <field name="bike_source"/>
+                    <field name="workshop_bike_id"/>
+                    <field name="external_bike_reference"/>
+                    <field name="assigned_mechanic"/>
+                    <field name="total_parts_cost"/>
+                    <field name="state" widget="badge"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- ==================== REPAIR SEARCH VIEW ==================== -->
+
+<record id="view_bike_repair_search" model="ir.ui.view">
+    <field name="name">bike.repair.search</field>
+    <field name="model">bike.repair</field>
+    <field name="arch" type="xml">
+        <search string="Search Repair Jobs">
+
+            <field name="name"/>
+            <field name="customer_id"/>
+            <field name="assigned_mechanic"/>
+
+            <separator/>
+
+            <!-- Repair State Filters -->
+            <filter
+                name="filter_draft"
+                string="Draft"
+                domain="[('state', '=', 'draft')]"
+            />
+
+            <filter
+                name="filter_in_progress"
+                string="In Progress"
+                domain="[('state', '=', 'in_progress')]"
+            />
+
+            <filter
+                name="filter_completed"
+                string="Completed"
+                domain="[('state', '=', 'completed')]"
+            />
+
+            <filter
+                name="filter_cancelled"
+                string="Cancelled"
+                domain="[('state', '=', 'cancelled')]"
+            />
+
+            <separator/>
+
+            <!-- Bike Source Filters -->
+            <filter
+                name="filter_workshop_bike"
+                string="Workshop"
+                domain="[('bike_source', '=', 'workshop')]"
+            />
+
+            <filter
+                name="filter_external_bike"
+                string="External"
+                domain="[('bike_source', '=', 'external')]"
+            />
+
+        </search>
+    </field>
+</record>
+
+        <!-- ==================== REPAIR FORM VIEW ==================== -->
+
+        <record id="view_bike_repair_form" model="ir.ui.view">
+            <field name="name">bike.repair.form</field>
+            <field name="model">bike.repair</field>
+            <field name="arch" type="xml">
+                <form string="Repair Job">
+
+                    <header>
+
+                        <button
+                            name="action_start"
+                            string="Start Repair"
+                            type="object"
+                            class="btn-primary"
+                            invisible="state != 'draft'"
+                        />
+
+                        <button
+                            name="action_complete"
+                            string="Complete Repair"
+                            type="object"
+                            class="btn-success"
+                            invisible="state != 'in_progress'"
+                        />
+
+                        <button
+                            name="action_cancel"
+                            string="Cancel"
+                            type="object"
+                            class="btn-secondary"
+                            invisible="state not in ['draft', 'in_progress']"
+                        />
+
+                        <field
+                            name="state"
+                            widget="statusbar"
+                            statusbar_visible="draft,in_progress,completed,cancelled"
+                        />
+
+                    </header>
+
+                    <sheet>
+
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" readonly="1"/>
+                            </h1>
+                        </div>
+
+                        <group>
+
+                            <group>
+                                <field name="customer_id"/>
+
+                                <field
+                                    name="bike_source"
+                                    widget="radio"
+                                />
+
+                                <field
+                                    name="workshop_bike_id"
+                                    invisible="bike_source != 'workshop'"
+                                    options="{'no_create': True}"
+                                />
+
+                                <field
+                                    name="external_bike_reference"
+                                    invisible="bike_source != 'external'"
+                                />
+
+                                <field
+                                    name="external_brand"
+                                    invisible="bike_source != 'external'"
+                                />
+
+                                <field
+                                    name="external_bike_type"
+                                    invisible="bike_source != 'external'"
+                                />
+                            </group>
+
+                            <group>
+                                <field name="assigned_mechanic"/>
+                                <field name="last_service_date"/>
+                                <field name="total_parts_cost"/>
+                            </group>
+
+                        </group>
+
+                        <group string="Issue &amp; Service Notes">
+                            <field
+                                name="reported_issue"
+                                placeholder="Describe the reported issue..."
+                            />
+
+                            <field
+                                name="service_notes"
+                                placeholder="Enter service notes..."
+                            />
+                        </group>
+
+                        <notebook>
+
+                            <page string="Spare Parts">
+
+                                <field name="part_line_ids">
+
+                                    <list editable="bottom">
+
+                                        <field name="product_id"/>
+                                        <field name="quantity"/>
+                                        <field name="unit_price"/>
+                                        <field name="subtotal"/>
+
+                                    </list>
+
+                                </field>
+
+                            </page>
+
+                        </notebook>
+
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+        <!-- ==================== REPAIR ACTION ==================== -->
+
+        <record id="action_bike_repair" model="ir.actions.act_window">
+            <field name="name">Repair Jobs</field>
+            <field name="res_model">bike.repair</field>
+            <field name="view_mode">list,form</field>
+            <field name="search_view_id" ref="view_bike_repair_search"/>
+</record>
+
+        <!-- ==================== REPAIR MENU ==================== -->
+
+        <menuitem
+            id="menu_bike_repair_root"
+            name="Repairs"
+            parent="menu_bike_workshop_root"
+            action="action_bike_repair"
+            sequence="30"
+        />
+
+    </data>
+</odoo>
