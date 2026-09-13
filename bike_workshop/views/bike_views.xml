@@ -1,66 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <data>
 
-    <!-- List View -->
-    <record id="view_bike_workshop_list_v2" model="ir.ui.view">
-        <field name="name">bike.workshop.list.v2</field>
-        <field name="model">bike.workshop</field>
-        <field name="arch" type="xml">
-            <list string="Bikes">
-                <field name="name"/>
-                <field name="brand"/>
-                <field name="bike_type"/>
-                <field name="daily_rental_price"/>
-                <field name="wheel_size"/>
-                <field name="purchase_date"/>
-                <field name="last_maintenance_date"/>
-            </list>
-        </field>
-    </record>
+        <!-- Main Menu -->
+        <menuitem
+            id="menu_bike_workshop_root"
+            name="Bike Workshop"
+            sequence="10"
+        />
 
-    <!-- Form View -->
-    <record id="view_bike_workshop_form_v2" model="ir.ui.view">
-        <field name="name">bike.workshop.form.v2</field>
-        <field name="model">bike.workshop</field>
-        <field name="arch" type="xml">
-            <form string="Bike">
-                <sheet>
-                    <group>
+        <!-- Bikes List View -->
+        <record id="view_bike_workshop_list_v2" model="ir.ui.view">
+            <field name="name">bike.workshop.list.v2</field>
+            <field name="model">bike.workshop</field>
+            <field name="arch" type="xml">
+                <list string="Bikes">
+                    <field name="name"/>
+                    <field name="brand"/>
+                    <field name="bike_type"/>
+                    <field name="daily_rental_price"/>
+                    <field name="wheel_size"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Bikes Form View -->
+        <record id="view_bike_workshop_form_v2" model="ir.ui.view">
+            <field name="name">bike.workshop.form.v2</field>
+            <field name="model">bike.workshop</field>
+            <field name="arch" type="xml">
+                <form string="Bike">
+                    <sheet>
+
+                        <div name="button_box" class="oe_button_box">
+                            <button
+                                name="action_view_rentals"
+                                type="object"
+                                class="oe_stat_button"
+                                icon="fa-calendar"
+                            >
+                                <field
+                                    name="rental_count"
+                                    widget="statinfo"
+                                    string="Rentals"
+                                />
+                            </button>
+                        </div>
+
                         <group>
-                            <field name="name"/>
-                            <field name="brand"/>
-                            <field name="bike_type"/>
-                            <field name="wheel_size"/>
+                            <group>
+                                <field name="name"/>
+                                <field name="brand"/>
+                                <field name="bike_type"/>
+                                <field name="wheel_size"/>
+                            </group>
+
+                            <group>
+                                <field name="purchase_date"/>
+                                <field name="daily_rental_price"/>
+                            </group>
                         </group>
-                        <group>
-                            <field name="purchase_date"/>
-                            <field name="last_maintenance_date"/>
-                            <field name="daily_rental_price"/>
+
+                        <group string="Service Tracking">
+                            <field name="assigned_mechanic"/>
+                            <field name="last_service_date"/>
+                            <field name="service_notes"/>
                         </group>
-                    </group>
-                </sheet>
-            </form>
-        </field>
-    </record>
 
-    <!-- Action -->
-    <record id="action_bike_workshop" model="ir.actions.act_window">
-        <field name="name">Bikes</field>
-        <field name="res_model">bike.workshop</field>
-        <field name="view_mode">list,form</field>
-    </record>
+                    </sheet>
+                </form>
+            </field>
+        </record>
 
-    <!-- Menu -->
-    <menuitem id="menu_bike_workshop_root"
-              name="Rami's Bike Workshop"
-              web_icon="bike_workshop,static/description/icon.png"
-              groups="bike_workshop.group_bike_workshop_staff"
-              sequence="10"/>
-              
-    <menuitem id="menu_bike_workshop_bike" 
-              name="Bikes" 
-              parent="menu_bike_workshop_root" 
-              action="action_bike_workshop" 
-              sequence="10"/>
+        <!-- Bikes Action -->
+        <record id="action_bike_workshop" model="ir.actions.act_window">
+            <field name="name">Bikes</field>
+            <field name="res_model">bike.workshop</field>
+            <field name="view_mode">list,form</field>
+        </record>
 
+        <!-- Bikes Menu -->
+        <menuitem
+            id="menu_bike_workshop_bikes"
+            name="Bikes"
+            parent="menu_bike_workshop_root"
+            action="action_bike_workshop"
+            sequence="10"
+        />
+
+    </data>
 </odoo>

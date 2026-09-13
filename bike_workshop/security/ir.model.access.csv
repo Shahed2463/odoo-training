@@ -1,2 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_bike_workshop_staff,access_bike_workshop_staff,model_bike_workshop,bike_workshop.group_bike_workshop_staff,1,1,1,1
+access_bike_rental_staff,bike.rental staff,model_bike_rental,bike_workshop.group_bike_workshop_staff,1,1,1,1
+access_bike_repair_staff,bike.repair staff,model_bike_repair,bike_workshop.group_bike_workshop_staff,1,1,1,1
+access_bike_repair_part_line_staff,bike.repair.part.line staff,model_bike_repair_part_line,bike_workshop.group_bike_workshop_staff,1,1,1,1

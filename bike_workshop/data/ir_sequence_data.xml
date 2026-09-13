@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="seq_bike_rental" model="ir.sequence">
+        <field name="name">Bike Rental</field>
+        <field name="code">bike.rental</field>
+        <field name="prefix">RENT/</field>
+        <field name="padding">5</field>
+    </record>
+
+    <record id="seq_bike_repair" model="ir.sequence">
+        <field name="name">Bike Repair</field>
+        <field name="code">bike.repair</field>
+        <field name="prefix">REPAIR/</field>
+        <field name="padding">5</field>
+    </record>
+</odoo>
