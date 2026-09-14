@@ -1,4 +1,4 @@
-nano ~/odoo-dev/clean_bike_project/bike_workshop/models/service_mixin.pyfrom odoo import fields, models
+from odoo import fields, models
 
 
 class BikeServiceMixin(models.AbstractModel):
@@ -10,6 +10,7 @@ class BikeServiceMixin(models.AbstractModel):
         string="Assigned Mechanic",
         domain="[('is_mechanic', '=', True)]",
     )
+
     last_service_date = fields.Date(
         string="Last Service Date",
     )
