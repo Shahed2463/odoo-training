@@ -10,3 +10,11 @@ class ResPartner(models.Model):
         selection=BIKE_TYPE_SELECTION,
         string="Preferred Bike Type",
     )
+
+
+class ResUsers(models.Model):
+    _inherit = "res.users"
+
+    is_mechanic = fields.Boolean(
+        string="Is Mechanic",
+    )

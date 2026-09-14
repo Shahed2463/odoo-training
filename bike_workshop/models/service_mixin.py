@@ -1,4 +1,4 @@
-from odoo import fields, models
+nano ~/odoo-dev/clean_bike_project/bike_workshop/models/service_mixin.pyfrom odoo import fields, models
 
 
 class BikeServiceMixin(models.AbstractModel):
@@ -8,9 +8,8 @@ class BikeServiceMixin(models.AbstractModel):
     assigned_mechanic = fields.Many2one(
         "res.users",
         string="Assigned Mechanic",
-        domain="[('partner_id.category_id.name', '=', 'Mechanic')]",
+        domain="[('is_mechanic', '=', True)]",
     )
-
     last_service_date = fields.Date(
         string="Last Service Date",
     )
