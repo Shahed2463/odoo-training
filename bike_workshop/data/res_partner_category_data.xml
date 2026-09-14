@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="partner_category_mechanic" model="res.partner.category">
+        <field name="name">Mechanic</field>
+    </record>
+</odoo>

@@ -9,6 +9,7 @@
         'base',
         'contacts',
         'product',
+        'stock',
     ],
     'data': [
         'security/bike_security.xml',
@@ -19,7 +20,7 @@
         'views/bike_repair_views.xml',
         'views/res_partner_views.xml',
         'views/product_views.xml',
-    ],
+        'data/res_partner_category_data.xml',    ],
     'installable': True,
     'application': True,
     'auto_install': False,
