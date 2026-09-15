@@ -10,7 +10,6 @@
         'contacts',
         'product',
         'stock',
-        'portal',
     ],
     'data': [
         'security/bike_security.xml',
