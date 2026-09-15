@@ -5,23 +5,33 @@
     'category': 'Sales/Rental',
     'author': 'Shahed Alawneh',
     'license': 'LGPL-3',
+
     'depends': [
         'base',
         'contacts',
         'product',
         'stock',
+        'portal',
     ],
+
     'data': [
-        'security/bike_security.xml',
-        'security/ir.model.access.csv',
-        'data/bike_sequence.xml',
-        'views/bike_views.xml',
-        'views/bike_rental_views.xml',
-        'views/bike_repair_views.xml',
-        'views/res_partner_views.xml',
-        'views/product_views.xml',
-        'views/res_users_views.xml',
-    ],
+    'security/bike_security.xml',
+    'security/ir.model.access.csv',
+
+    'data/bike_sequence.xml',
+    'data/dashboard_data.xml',
+    'reports/rental_agreement_report.xml',
+
+    'views/bike_views.xml',
+    'views/bike_rental_views.xml',
+    'views/bike_repair_views.xml',
+    'views/res_partner_views.xml',
+    'views/product_views.xml',
+    'views/res_users_views.xml',
+    'views/dashboard_views.xml',
+    'views/portal_templates.xml',
+],
+
     'installable': True,
     'application': True,
     'auto_install': False,

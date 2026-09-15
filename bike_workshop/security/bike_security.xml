@@ -6,4 +6,15 @@
         <field name="user_ids" eval="[(4, ref('base.user_admin'))]"/>
     </record>
 
+<record id="rule_bike_rental_portal_own" model="ir.rule">
+    <field name="name">Portal Users: Own Rentals Only</field>
+    <field name="model_id" ref="model_bike_rental"/>
+    <field name="groups" eval="[(4, ref('base.group_portal'))]"/>
+    <field name="domain_force">[('customer_id', '=', user.partner_id.id)]</field>
+    <field name="perm_read" eval="1"/>
+    <field name="perm_write" eval="0"/>
+    <field name="perm_create" eval="0"/>
+    <field name="perm_unlink" eval="0"/>
+</record>
+
 </odoo>
