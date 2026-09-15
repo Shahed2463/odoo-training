@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="dashboard_main" model="bike.workshop.dashboard">
+        <field name="name">Workshop Operations</field>
+    </record>
+
+</odoo>

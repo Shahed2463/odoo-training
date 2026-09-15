@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Rental Agreement Report -->
+    <record id="action_report_rental_agreement" model="ir.actions.report">
+        <field name="name">Rental Agreement</field>
+        <field name="model">bike.rental</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">bike_workshop.rental_agreement_template</field>
+        <field name="report_file">bike_workshop.rental_agreement_template</field>
+        <field name="binding_model_id" ref="model_bike_rental"/>
+        <field name="binding_type">report</field>
+        <field name="print_report_name">'Rental Agreement - %s' % (object.name)</field>
+    </record>
+
+    <!-- Rental Agreement Template -->
+    <template id="rental_agreement_template">
+
+        <t t-call="web.html_container">
+
+            <t t-foreach="docs" t-as="o">
+
+                <div class="page">
+
+                    <!-- Workshop Company Information -->
+                    <div style="
+                        text-align: center;
+                        margin-top: -15px;
+                        margin-bottom: 12px;
+                        padding-bottom: 10px;
+                        border-bottom: 2px solid #1F4E79;
+                    ">
+
+                        <!-- Company Logo -->
+                        <t t-if="env.company.logo">
+                            <img
+                                t-att-src="image_data_uri(env.company.logo)"
+                                style="
+                                    max-height: 65px;
+                                    max-width: 160px;
+                                    margin-bottom: 3px;
+                                "
+                            />
+                        </t>
+
+                        <!-- Company Name -->
+                        <h2 style="
+                            color: #1F4E79;
+                            margin: 2px 0;
+                            font-size: 22px;
+                            font-weight: 700;
+                        ">
+                            <span t-out="env.company.name"/>
+                        </h2>
+
+                        <!-- Company Contact Information -->
+                        <div style="
+                            color: #666666;
+                            font-size: 11px;
+                        ">
+
+                            <t t-if="env.company.phone">
+                                <span t-out="env.company.phone"/>
+                            </t>
+
+                            <t t-if="env.company.email">
+                                <span t-if="env.company.phone"> | </span>
+                                <span t-out="env.company.email"/>
+                            </t>
+
+                            <t t-if="env.company.website">
+                                <span> | </span>
+                                <span t-out="env.company.website"/>
+                            </t>
+
+                        </div>
+
+                    </div>
+
+                    <!-- Main Header -->
+                    <div style="
+                        text-align: center;
+                        padding: 12px 0 10px 0;
+                        border-bottom: 3px solid #1F4E79;
+                        margin-bottom: 20px;
+                    ">
+
+                        <h1 style="
+                            color: #1F4E79;
+                            font-size: 28px;
+                            margin: 0;
+                            font-weight: 700;
+                        ">
+                            BIKE WORKSHOP
+                        </h1>
+
+                        <h2 style="
+                            color: #555555;
+                            font-size: 20px;
+                            margin: 4px 0 0 0;
+                            font-weight: 500;
+                        ">
+                            Rental Agreement
+                        </h2>
+
+                    </div>
+
+                    <!-- Rental Reference / Status -->
+                    <table style="
+                        width: 100%;
+                        border-collapse: collapse;
+                        margin-bottom: 20px;
+                    ">
+                        <tr>
+
+                            <td style="
+                                width: 50%;
+                                padding: 11px;
+                                background-color: #EEF5FB;
+                                border-left: 4px solid #1F4E79;
+                            ">
+
+                                <span style="
+                                    color: #666666;
+                                    font-size: 11px;
+                                ">
+                                    RENTAL REFERENCE
+                                </span>
+
+                                <br/>
+
+                                <strong style="
+                                    color: #1F4E79;
+                                    font-size: 16px;
+                                ">
+                                    <span t-field="o.name"/>
+                                </strong>
+
+                            </td>
+
+                            <td style="
+                                width: 50%;
+                                padding: 11px;
+                                text-align: right;
+                                background-color: #EEF5FB;
+                            ">
+
+                                <span style="
+                                    color: #666666;
+                                    font-size: 11px;
+                                ">
+                                    STATUS
+                                </span>
+
+                                <br/>
+
+                                <strong style="
+                                    color: #1F4E79;
+                                    font-size: 14px;
+                                ">
+                                    <span t-field="o.state"/>
+                                </strong>
+
+                            </td>
+
+                        </tr>
+                    </table>
+
+                    <!-- Customer Information -->
+                    <div style="margin-top: 18px;">
+
+                        <div style="
+                            background-color: #1F4E79;
+                            color: white;
+                            padding: 8px 12px;
+                            font-size: 14px;
+                            font-weight: 600;
+                        ">
+                            Customer Information
+                        </div>
+
+                        <table style="
+                            width: 100%;
+                            border-collapse: collapse;
+                            border: 1px solid #D9E2F3;
+                        ">
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td style="
+                                        width: 30%;
+                                        padding: 8px 12px;
+                                        background-color: #F5F8FC;
+                                        border-bottom: 1px solid #D9E2F3;
+                                    ">
+                                        <strong>Customer</strong>
+                                    </td>
+
+                                    <td style="
+                                        padding: 8px 12px;
+                                        border-bottom: 1px solid #D9E2F3;
+                                    ">
+                                        <span t-field="o.customer_id.name"/>
+                                    </td>
+
+                                </tr>
+
+                                <t t-if="o.customer_id.email">
+
+                                    <tr>
+
+                                        <td style="
+                                            padding: 8px 12px;
+                                            background-color: #F5F8FC;
+                                            border-bottom: 1px solid #D9E2F3;
+                                        ">
+                                            <strong>Email</strong>
+                                        </td>
+
+                                        <td style="
+                                            padding: 8px 12px;
+                                            border-bottom: 1px solid #D9E2F3;
+                                        ">
+                                            <span t-field="o.customer_id.email"/>
+                                        </td>
+
+                                    </tr>
+
+                                </t>
+
+                                <t t-if="o.customer_id.phone">
+
+                                    <tr>
+
+                                        <td style="
+                                            padding: 8px 12px;
+                                            background-color: #F5F8FC;
+                                        ">
+                                            <strong>Phone</strong>
+                                        </td>
+
+                                        <td style="
+                                            padding: 8px 12px;
+                                        ">
+                                            <span t-field="o.customer_id.phone"/>
+                                        </td>
+
+                                    </tr>
+
+                                </t>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <!-- Rental Information -->
+                    <div style="margin-top: 22px;">
+
+                        <div style="
+                            background-color: #1F4E79;
+                            color: white;
+                            padding: 8px 12px;
+                            font-size: 14px;
+                            font-weight: 600;
+                        ">
+                            Rental Information
+                        </div>
+
+                        <table style="
+                            width: 100%;
+                            border-collapse: collapse;
+                            border: 1px solid #D9E2F3;
+                        ">
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td style="
+                                        width: 40%;
+                                        padding: 8px 12px;
+                                        background-color: #F5F8FC;
+                                        border-bottom: 1px solid #D9E2F3;
+                                    ">
+                                        <strong>Bike</strong>
+                                    </td>
+
+                                    <td style="
+                                        padding: 8px 12px;
+                                        border-bottom: 1px solid #D9E2F3;
+                                    ">
+                                        <span t-field="o.bike_id"/>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td style="
+                                        padding: 8px 12px;
+                                        background-color: #F5F8FC;
+                                        border-bottom: 1px solid #D9E2F3;
+                                    ">
+                                        <strong>Rental Start Date</strong>
+                                    </td>
+
+                                    <td style="
+                                        padding: 8px 12px;
+                                        border-bottom: 1px solid #D9E2F3;
+                                    ">
+                                        <span t-field="o.start_date"/>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td style="
+                                        padding: 8px 12px;
+                                        background-color: #F5F8FC;
+                                        border-bottom: 1px solid #D9E2F3;
+                                    ">
+                                        <strong>Expected Return Date</strong>
+                                    </td>
+
+                                    <td style="
+                                        padding: 8px 12px;
+                                        border-bottom: 1px solid #D9E2F3;
+                                    ">
+                                        <span t-field="o.expected_return_date"/>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td style="
+                                        padding: 8px 12px;
+                                        background-color: #F5F8FC;
+                                        border-bottom: 1px solid #D9E2F3;
+                                    ">
+                                        <strong>Actual Return Date</strong>
+                                    </td>
+
+                                    <td style="
+                                        padding: 8px 12px;
+                                        border-bottom: 1px solid #D9E2F3;
+                                    ">
+
+                                        <t t-if="o.actual_return_date">
+
+                                            <span t-field="o.actual_return_date"/>
+
+                                        </t>
+
+                                        <t t-else="">
+
+                                            <span style="color: #888888;">
+                                                N/A
+                                            </span>
+
+                                        </t>
+
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td style="
+                                        padding: 8px 12px;
+                                        background-color: #F5F8FC;
+                                    ">
+                                        <strong>Rental Duration</strong>
+                                    </td>
+
+                                    <td style="
+                                        padding: 8px 12px;
+                                    ">
+                                        <span t-field="o.duration_days"/>
+                                        Days
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <!-- Payment Information -->
+                    <div style="margin-top: 22px;">
+
+                        <div style="
+                            background-color: #1F4E79;
+                            color: white;
+                            padding: 8px 12px;
+                            font-size: 14px;
+                            font-weight: 600;
+                        ">
+                            Payment Information
+                        </div>
+
+                        <table style="
+                            width: 100%;
+                            border-collapse: collapse;
+                            border: 1px solid #D9E2F3;
+                        ">
+
+                            <tbody>
+
+                                <tr>
+
+                                    <td style="
+                                        width: 70%;
+                                        padding: 8px 12px;
+                                        background-color: #F5F8FC;
+                                        border-bottom: 1px solid #D9E2F3;
+                                    ">
+                                        <strong>Daily Rental Price</strong>
+                                    </td>
+
+                                    <td style="
+                                        padding: 8px 12px;
+                                        text-align: right;
+                                        border-bottom: 1px solid #D9E2F3;
+                                    ">
+                                        <span t-field="o.daily_rental_price"/>
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <td style="
+                                        padding: 8px 12px;
+                                        background-color: #F5F8FC;
+                                        border-bottom: 1px solid #D9E2F3;
+                                    ">
+                                        <strong>Rental Duration</strong>
+                                    </td>
+
+                                    <td style="
+                                        padding: 8px 12px;
+                                        text-align: right;
+                                        border-bottom: 1px solid #D9E2F3;
+                                    ">
+                                        <span t-field="o.duration_days"/>
+                                        Days
+                                    </td>
+
+                                </tr>
+
+                                <!-- Total -->
+                                <tr>
+
+                                    <td style="
+                                        padding: 12px;
+                                        background-color: #DCEAF7;
+                                        color: #1F4E79;
+                                        font-size: 15px;
+                                    ">
+                                        <strong>Total Amount</strong>
+                                    </td>
+
+                                    <td style="
+                                        padding: 12px;
+                                        text-align: right;
+                                        background-color: #DCEAF7;
+                                        color: #1F4E79;
+                                        font-size: 17px;
+                                    ">
+                                        <strong>
+                                            <span t-field="o.total_amount"/>
+                                        </strong>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <!-- Footer Message -->
+                    <div style="
+                        margin-top: 28px;
+                        padding: 12px;
+                        text-align: center;
+                        border-top: 1px solid #D9E2F3;
+                    ">
+
+                        <p style="
+                            margin: 0;
+                            color: #555555;
+                        ">
+                            Thank you for choosing
+                            <strong style="color: #1F4E79;">
+                                Bike Workshop
+                            </strong>.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </t>
+
+        </t>
+
+    </template>
+
+</odoo>
