@@ -3,3 +3,7 @@ access_bike_workshop_staff,access_bike_workshop_staff,model_bike_workshop,bike_w
 access_bike_rental_staff,bike.rental staff,model_bike_rental,bike_workshop.group_bike_workshop_staff,1,1,1,1
 access_bike_repair_staff,bike.repair staff,model_bike_repair,bike_workshop.group_bike_workshop_staff,1,1,1,1
 access_bike_repair_part_line_staff,bike.repair.part.line staff,model_bike_repair_part_line,bike_workshop.group_bike_workshop_staff,1,1,1,1
+access_bike_workshop_dashboard_staff,bike.workshop.dashboard staff,model_bike_workshop_dashboard,bike_workshop.group_bike_workshop_staff,1,0,0,0
+access_bike_workshop_dashboard_admin,bike.workshop.dashboard admin,model_bike_workshop_dashboard,base.group_system,1,0,0,0
+access_bike_rental_portal,bike.rental portal,model_bike_rental,base.group_portal,1,0,0,0
+access_bike_workshop_portal,bike.workshop portal,model_bike_workshop,base.group_portal,1,0,0,0
