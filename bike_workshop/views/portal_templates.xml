@@ -3,26 +3,39 @@
 
     <!-- My Rentals Entry on Portal Home -->
     <template
-    id="portal_my_home_bike_rentals"
-    inherit_id="portal.portal_my_home"
-    name="My Rentals Portal Entry"
+        id="portal_my_home_bike_rentals"
+        inherit_id="portal.portal_my_home"
+        name="My Rentals Portal Entry"
     >
-    <xpath expr="//div[@id='portal_common_category']" position="inside">
+        <xpath expr="//div[@id='portal_common_category']" position="inside">
 
-        <div class="col-12 col-md-6 col-lg-4">
-            <a href="/my/rentals" class="text-decoration-none">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5>My Rentals</h5>
-                        <p class="text-muted">
-                            View your bike rentals
-                        </p>
+            <div class="col-12 col-md-6 col-lg-4">
+                <a href="/my/rentals" class="text-decoration-none">
+                    <div class="card h-100 bike-portal-card">
+
+                        <div class="card-body">
+
+                            <div class="text-center mb-3">
+                                <img
+                                    src="/bike_workshop/static/src/img/rami_bike_workshop_logo.png"
+                                    alt="Rami's Bike Workshop"
+                                    class="bike-workshop-logo"
+                                />
+                            </div>
+
+                            <h5>My Rentals</h5>
+
+                            <p class="text-muted mb-0">
+                                View your bike rentals
+                            </p>
+
+                        </div>
+
                     </div>
-                </div>
-            </a>
-        </div>
+                </a>
+            </div>
 
-    </xpath>
+        </xpath>
     </template>
 
 
@@ -33,10 +46,29 @@
     >
         <t t-call="portal.portal_layout">
 
-            <div class="container">
+            <div class="container bike-portal">
 
+                <!-- Workshop Branding -->
+                <div class="bike-dashboard-brand">
+
+                    <img
+                        src="/bike_workshop/static/src/img/rami_bike_workshop_logo.png"
+                        alt="Rami's Bike Workshop"
+                        class="bike-workshop-logo"
+                    />
+
+                    <div>
+                        <h1>My Rentals</h1>
+                        <p>Rami's Bike Workshop</p>
+                    </div>
+
+                </div>
+
+
+                <!-- Rentals Header -->
                 <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h3 class="mb-0">
+
+                    <h3 class="bike-portal-title mb-0">
                         My Rentals
                     </h3>
 
@@ -44,15 +76,26 @@
                         <t t-out="len(rentals)"/>
                         Rentals
                     </span>
+
                 </div>
 
-                <div t-if="not rentals" class="alert alert-info">
+
+                <!-- No Rentals -->
+                <div
+                    t-if="not rentals"
+                    class="alert alert-info bike-portal-card"
+                >
                     You do not have any rentals yet.
                 </div>
 
-                <div t-if="rentals" class="table-responsive">
 
-                    <table class="table table-striped table-hover">
+                <!-- Rentals Table -->
+                <div
+                    t-if="rentals"
+                    class="bike-portal-card table-responsive"
+                >
+
+                    <table class="bike-rental-table">
 
                         <thead>
                             <tr>
@@ -120,25 +163,45 @@
     >
         <t t-call="portal.portal_layout">
 
-            <div class="container">
+            <div class="container bike-portal">
 
+                <!-- Workshop Branding -->
+                <div class="bike-dashboard-brand">
+
+                    <img
+                        src="/bike_workshop/static/src/img/rami_bike_workshop_logo.png"
+                        alt="Rami's Bike Workshop"
+                        class="bike-workshop-logo"
+                    />
+
+                    <div>
+                        <h1>Rental Details</h1>
+                        <p>Rami's Bike Workshop</p>
+                    </div>
+
+                </div>
+
+
+                <!-- Rental Header -->
                 <div class="d-flex justify-content-between align-items-center mb-4">
 
-                    <h3>
+                    <h3 class="bike-portal-title mb-0">
                         Rental
                         <t t-out="rental.name"/>
                     </h3>
 
                     <a
                         href="/my/rentals"
-                        class="btn btn-secondary"
+                        class="btn btn-secondary bike-dashboard-btn"
                     >
                         Back to My Rentals
                     </a>
 
                 </div>
 
-                <div class="card">
+
+                <!-- Rental Information -->
+                <div class="bike-portal-card">
 
                     <div class="card-header">
                         <h5 class="mb-0">
