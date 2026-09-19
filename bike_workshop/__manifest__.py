@@ -24,6 +24,7 @@
 
     'views/bike_views.xml',
     'views/bike_rental_views.xml',
+    'views/bike_rental_analysis_views.xml',
     'views/bike_repair_views.xml',
     'views/res_partner_views.xml',
     'views/product_views.xml',
@@ -31,6 +32,16 @@
     'views/dashboard_views.xml',
     'views/portal_templates.xml',
 ],
+    'assets': {
+    'web.assets_backend': [
+        'bike_workshop/static/src/css/bike_workshop.css',
+        'bike_workshop/static/src/img/rami_bike_workshop_logo.png',
+    ],
+    'web.assets_frontend': [
+        'bike_workshop/static/src/css/bike_workshop.css',
+        'bike_workshop/static/src/img/rami_bike_workshop_logo.png',
+    ],
+},
 
     'installable': True,
     'application': True,

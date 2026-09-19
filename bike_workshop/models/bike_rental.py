@@ -28,6 +28,13 @@ class BikeRental(models.Model):
         required=True,
         ondelete="restrict",
     )
+    
+    bike_type = fields.Selection(
+        related="bike_id.bike_type",
+        string="Bike Type",
+        store=True,
+        readonly=True,
+    )
 
     start_date = fields.Date(
         string="Rental Start Date",
@@ -74,6 +81,17 @@ class BikeRental(models.Model):
         copy=False,
     )
 
+    return_performance = fields.Selection(
+        [
+            ("on_time", "On Time"),
+            ("late", "Late"),
+            ("pending", "Pending"),
+        ],
+        string="Return Performance",
+        compute="_compute_return_performance",
+        store=True,
+    )
+
     @api.model_create_multi
     def create(self, vals_list):
         sequence = self.env["ir.sequence"]
@@ -109,6 +127,20 @@ class BikeRental(models.Model):
             rental.total_amount = (
                 rental.duration_days * rental.daily_rental_price
             )
+
+    @api.depends(
+        "state",
+        "expected_return_date",
+        "actual_return_date",
+    )
+    def _compute_return_performance(self):
+        for rental in self:
+            if not rental.actual_return_date:
+                rental.return_performance = "pending"
+            elif rental.actual_return_date <= rental.expected_return_date:
+                rental.return_performance = "on_time"
+            else:
+                rental.return_performance = "late"
 
     @api.onchange("bike_id")
     def _onchange_bike_id(self):
@@ -309,9 +341,7 @@ class BikeRental(models.Model):
         for rental in self:
             if rental.state != "confirmed":
                 raise UserError(
-                    _(
-                        "Only a Confirmed rental can be returned."
-                    )
+                    _("Only a Confirmed rental can be returned.")
                 )
 
         for rental in self:

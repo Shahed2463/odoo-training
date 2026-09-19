@@ -1,0 +1,332 @@
+/* =========================================================
+   Bike Workshop - Dashboard & Customer Portal
+   Exercise 4
+   ========================================================= */
+
+/* -------------------------
+   Operations Dashboard
+   ------------------------- */
+
+.bike-dashboard {
+    padding: 24px;
+}
+
+.bike-dashboard .bike-dashboard-title {
+    margin-bottom: 24px;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.bike-dashboard .bike-stat-card {
+    border-radius: 12px;
+    padding: 24px;
+    min-height: 140px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bike-dashboard .bike-stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 16px rgba(0, 0, 0, 0.10);
+}
+
+.bike-dashboard .bike-stat-label {
+    font-size: 14px;
+    color: #6b7280;
+    margin-bottom: 10px;
+}
+
+.bike-dashboard .bike-stat-value {
+    font-size: 32px;
+    font-weight: 700;
+    color: #212529;
+}
+
+.bike-dashboard .bike-stat-icon {
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+
+/* -------------------------
+   Dashboard Cards
+   ------------------------- */
+
+.bike-dashboard .bike-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.bike-dashboard .bike-card-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+
+/* -------------------------
+   Dashboard Buttons
+   ------------------------- */
+
+.bike-dashboard .bike-dashboard-btn {
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.bike-dashboard .bike-dashboard-btn:hover {
+    transform: translateY(-1px);
+}
+
+
+/* -------------------------
+   Customer Portal
+   ------------------------- */
+
+.bike-portal {
+    padding: 20px 0;
+}
+
+.bike-portal .bike-portal-title {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.bike-portal .bike-portal-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+
+/* -------------------------
+   Portal Rental Table
+   ------------------------- */
+
+.bike-portal .bike-rental-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+}
+
+.bike-portal .bike-rental-table th {
+    padding: 12px 14px;
+    background: #f8f9fa;
+    font-weight: 600;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.bike-portal .bike-rental-table td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.bike-portal .bike-rental-table tr:last-child td {
+    border-bottom: none;
+}
+
+.bike-portal .bike-rental-table tbody tr:hover {
+    background: #f8f9fa;
+}
+
+
+/* -------------------------
+   Rental Status
+   ------------------------- */
+
+.bike-portal .bike-status {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.bike-portal .bike-status-confirmed {
+    background: #e7f5ec;
+    color: #198754;
+}
+
+.bike-portal .bike-status-returned {
+    background: #e9ecef;
+    color: #495057;
+}
+
+.bike-portal .bike-status-draft {
+    background: #fff3cd;
+    color: #856404;
+}
+
+
+/* -------------------------
+   Portal Responsive
+   ------------------------- */
+
+@media (max-width: 768px) {
+
+    .bike-dashboard {
+        padding: 15px;
+    }
+
+    .bike-dashboard .bike-stat-card {
+        margin-bottom: 15px;
+    }
+
+    .bike-dashboard .bike-stat-value {
+        font-size: 26px;
+    }
+
+    .bike-portal .bike-rental-table {
+        font-size: 13px;
+    }
+
+    .bike-portal .bike-rental-table th,
+    .bike-portal .bike-rental-table td {
+        padding: 9px;
+    }
+}
+
+/* -------------------------
+   Workshop Branding
+   ------------------------- */
+
+.bike-dashboard-brand {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 30px;
+    padding: 18px 22px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.bike-workshop-logo {
+    width: 90px;
+    height: 68px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.bike-dashboard-brand h1 {
+    margin: 0 0 5px 0;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.bike-dashboard-brand p {
+    margin: 0;
+    font-size: 15px;
+    color: #6b7280;
+}
+
+/* -------------------------
+   Rami's Bike Workshop Brand Colors
+   ------------------------- */
+
+:root {
+    --bike-brand-green: #82BB48;
+    --bike-brand-dark: #333333;
+    --bike-brand-light: #F4F8EF;
+}
+
+/* Dashboard */
+
+.bike-dashboard .bike-dashboard-title {
+    color: var(--bike-brand-dark);
+}
+
+.bike-dashboard .bike-stat-card {
+    border-top: 4px solid var(--bike-brand-green);
+}
+
+.bike-dashboard .bike-stat-value {
+    color: var(--bike-brand-dark);
+}
+
+.bike-dashboard .bike-stat-icon {
+    color: var(--bike-brand-green);
+}
+
+.bike-dashboard .bike-card-title {
+    color: var(--bike-brand-dark);
+}
+
+.bike-dashboard .bike-dashboard-btn {
+    background-color: var(--bike-brand-green);
+    border-color: var(--bike-brand-green);
+    color: #ffffff;
+}
+
+.bike-dashboard .bike-dashboard-btn:hover {
+    background-color: #72A63D;
+    border-color: #72A63D;
+    color: #ffffff;
+}
+
+/* Branding Header */
+
+.bike-dashboard-brand {
+    border-left: 5px solid var(--bike-brand-green);
+}
+
+.bike-dashboard-brand h1 {
+    color: var(--bike-brand-dark);
+}
+
+.bike-dashboard-brand p {
+    color: var(--bike-brand-green);
+}
+
+/* Customer Portal */
+
+.bike-portal .bike-portal-title {
+    color: var(--bike-brand-dark);
+}
+
+.bike-portal .bike-rental-table th {
+    background: var(--bike-brand-light);
+    color: var(--bike-brand-dark);
+}
+
+.bike-portal .bike-rental-table tbody tr:hover {
+    background: var(--bike-brand-light);
+}
+
+.bike-portal .bike-rental-table a {
+    color: var(--bike-brand-green);
+    font-weight: 600;
+}
+
+.bike-portal .bike-portal-card {
+    border-top: 3px solid var(--bike-brand-green);
+}
+
+/* Portal Buttons */
+
+.bike-portal .bike-dashboard-btn {
+    background-color: var(--bike-brand-dark);
+    border-color: var(--bike-brand-dark);
+    color: #ffffff;
+}
+
+.bike-portal .bike-dashboard-btn:hover {
+    background-color: var(--bike-brand-green);
+    border-color: var(--bike-brand-green);
+    color: #ffffff;
+}
