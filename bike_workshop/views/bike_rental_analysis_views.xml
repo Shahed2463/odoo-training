@@ -47,6 +47,7 @@
 
                     <field name="customer_id"/>
                     <field name="bike_id"/>
+                    <field name="bike_type"/>
                     <field name="start_date"/>
                     <field name="state"/>
                     <field name="return_performance"/>
@@ -131,12 +132,6 @@
             <field name="view_mode">pivot,graph</field>
             <field name="search_view_id" ref="view_bike_rental_analysis_search"/>
             <field name="domain">[('state', '!=', 'draft')]</field>
-            <field name="context">
-                {
-                    'search_default_filter_confirmed': 0,
-                    'search_default_filter_returned': 0
-                }
-            </field>
         </record>
 
         <!-- ==================== RENTAL ANALYSIS MENU ==================== -->
@@ -151,4 +146,3 @@
 
     </data>
 </odoo>
-

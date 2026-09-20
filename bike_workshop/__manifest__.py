@@ -38,10 +38,7 @@
     'assets': {
     'web.assets_backend': [
         'bike_workshop/static/src/css/bike_workshop.css',
-        'bike_workshop/static/src/img/rami_bike_workshop_logo.png',
-    ],
-    'web.assets_frontend': [
-        'bike_workshop/static/src/css/bike_workshop.css',
+        'bike_workshop/static/src/js/bike_workshop_branding.js',
         'bike_workshop/static/src/img/rami_bike_workshop_logo.png',
     ],
 },

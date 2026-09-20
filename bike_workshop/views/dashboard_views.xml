@@ -7,7 +7,7 @@
         <field name="model">bike.workshop.dashboard</field>
         <field name="arch" type="xml">
 
-            <form string="Workshop Operations Dashboard" create="0" edit="0" delete="0">
+            <form string="" create="0" edit="0" delete="0">
                 <sheet>
 
                     <!-- Dashboard -->
@@ -22,12 +22,10 @@
                             />
 
                             <div>
-                                <h1>Workshop Operations Dashboard</h1>
+                                <h1 t-translation="on">Workshop Operations Dashboard</h1>
                                 <p>Rami's Bike Workshop</p>
                             </div>
                         </div>
-
-                        <h2 class="bike-dashboard-title">Workshop Operations</h2>
 
                         <div class="row">
 

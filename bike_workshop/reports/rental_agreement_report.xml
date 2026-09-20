@@ -33,16 +33,15 @@
                     ">
 
                         <!-- Company Logo -->
-                        <t t-if="env.company.logo">
                             <img
-                                t-att-src="image_data_uri(env.company.logo)"
+                                src="/bike_workshop/static/src/img/rami_bike_workshop_logo.png"
+
                                 style="
                                     max-height: 65px;
                                     max-width: 160px;
                                     margin-bottom: 3px;
                                 "
                             />
-                        </t>
 
                         <!-- Company Name -->
                         <h2 style="

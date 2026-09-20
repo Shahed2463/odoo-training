@@ -1134,3 +1134,11 @@ msgstr "لا توجد لديك أي إيجارات حتى الآن."
 #: model_terms:ir.ui.view,arch_db:bike_workshop.view_bike_workshop_dashboard_form
 msgid "Workshop Operations"
 msgstr "عمليات الورشة"
+#. module: bike_workshop
+#: model:ir.model.fields,field_description:bike_workshop.field_bike_workshop_dashboard__name
+msgid "Dashboard"
+msgstr "لوحة العمليات"
+#. module: bike_workshop
+#: model:bike.workshop.dashboard,name:bike_workshop.dashboard_main
+msgid "Workshop Operations"
+msgstr "عمليات الورشة"

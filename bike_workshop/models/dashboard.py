@@ -8,7 +8,7 @@ class BikeWorkshopDashboard(models.Model):
     name = fields.Char(
         string="Dashboard",
         default="Workshop Operations",
-        readonly=True,
+        translate=True,
     )
 
     active_rentals_today = fields.Integer(
@@ -71,7 +71,15 @@ class BikeWorkshopDashboard(models.Model):
             "type": "ir.actions.act_window",
             "name": "Active Rentals Today",
             "res_model": "bike.rental",
-            "view_mode": "list,form",
+            "view_mode": "list",
+            "views": [
+                (
+                    self.env.ref(
+                        "bike_workshop.view_bike_rental_dashboard_list"
+                    ).id,
+                    "list",
+                ),
+            ],
             "domain": [
                 ("state", "=", "confirmed"),
                 ("start_date", "<=", today),
@@ -89,7 +97,15 @@ class BikeWorkshopDashboard(models.Model):
             "type": "ir.actions.act_window",
             "name": "Returns Due Today",
             "res_model": "bike.rental",
-            "view_mode": "list,form",
+            "view_mode": "list",
+            "views": [
+                (
+                    self.env.ref(
+                        "bike_workshop.view_bike_rental_dashboard_list"
+                    ).id,
+                    "list",
+                ),
+            ],
             "domain": [
                 ("state", "=", "confirmed"),
                 ("expected_return_date", "=", today),
@@ -104,7 +120,15 @@ class BikeWorkshopDashboard(models.Model):
             "type": "ir.actions.act_window",
             "name": "Repairs In Progress",
             "res_model": "bike.repair",
-            "view_mode": "list,form",
+            "view_mode": "list",
+            "views": [
+                (
+                    self.env.ref(
+                        "bike_workshop.view_bike_repair_dashboard_list"
+                    ).id,
+                    "list",
+                ),
+            ],
             "domain": [
                 ("state", "=", "in_progress"),
             ],
