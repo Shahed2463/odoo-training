@@ -933,3 +933,48 @@ button[type="submit"].btn-primary:focus {
     border-color: #6E9F3D !important;
     color: #FFFFFF !important;
 }
+
+/* Rental Analysis measures */
+.o_pivot .o_pivot_measure {
+    color: #82BB48 !important;
+}
+
+/* Rental Analysis - Measures dropdown */
+.o_cp_pivot .dropdown-menu .dropdown-item,
+.o_cp_pivot .dropdown-menu .dropdown-item label {
+    color: #82BB48 !important;
+}
+
+.o_cp_pivot .dropdown-menu .dropdown-item:hover {
+    color: #6E9F3D !important;
+}
+
+/* Rental Analysis - Measures button */
+.o_pivot_buttons .btn-primary {
+    background-color: #82BB48 !important;
+    border-color: #82BB48 !important;
+    color: #FFFFFF !important;
+}
+
+.o_pivot_buttons .btn-primary:hover,
+.o_pivot_buttons .btn-primary:focus {
+    background-color: #6E9F3D !important;
+    border-color: #6E9F3D !important;
+    color: #FFFFFF !important;
+}
+
+/* Force Rental Analysis Measures button to Rami green */
+.o_pivot_buttons > .btn-group > button.btn-primary {
+    background: #82BB48 !important;
+    background-color: #82BB48 !important;
+    border-color: #82BB48 !important;
+    color: #FFFFFF !important;
+}
+
+.o_pivot_buttons > .btn-group > button.btn-primary:hover,
+.o_pivot_buttons > .btn-group > button.btn-primary:focus {
+    background: #6E9F3D !important;
+    background-color: #6E9F3D !important;
+    border-color: #6E9F3D !important;
+    color: #FFFFFF !important;
+}
