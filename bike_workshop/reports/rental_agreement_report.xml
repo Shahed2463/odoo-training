@@ -15,7 +15,7 @@
 
     <!-- Rental Agreement Template -->
     <template id="rental_agreement_template">
-        <meta charset="UTF-8"/>   
+        <meta charset="UTF-8"/>
 
         <t t-call="web.html_container" t-translation="off">
 
@@ -92,7 +92,7 @@
                             margin: 0;
                             font-weight: 700;
                         ">
-                            <t t-if="user.lang and user.lang.startswith('ar')">
+                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                 ورشة الدراجات
                             </t>
                             <t t-else="">
@@ -106,7 +106,7 @@
                             margin: 4px 0 0 0;
                             font-weight: 500;
                         ">
-                            <t t-if="user.lang and user.lang.startswith('ar')">
+                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                 اتفاقية الإيجار
                             </t>
                             <t t-else="">
@@ -135,7 +135,7 @@
                                     color: #666666;
                                     font-size: 11px;
                                 ">
-                                    <t t-if="user.lang and user.lang.startswith('ar')">
+                                    <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                         مرجع الإيجار
                                     </t>
                                     <t t-else="">
@@ -165,7 +165,7 @@
                                     color: #666666;
                                     font-size: 11px;
                                 ">
-                                    <t t-if="user.lang and user.lang.startswith('ar')">
+                                    <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                         الحالة
                                     </t>
                                     <t t-else="">
@@ -180,7 +180,7 @@
                                     font-size: 14px;
                                 ">
 
-                                    <t t-if="user.lang and user.lang.startswith('ar')">
+                                    <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
 
                                         <t t-if="o.state == 'draft'">
                                             مسودة
@@ -237,7 +237,7 @@
                             font-size: 14px;
                             font-weight: 600;
                         ">
-                            <t t-if="user.lang and user.lang.startswith('ar')">
+                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                 معلومات العميل
                             </t>
                             <t t-else="">
@@ -262,7 +262,7 @@
                                         border-bottom: 1px solid #D9E2F3;
                                     ">
                                         <strong>
-                                            <t t-if="user.lang and user.lang.startswith('ar')">
+                                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                                 العميل
                                             </t>
                                             <t t-else="">
@@ -290,7 +290,7 @@
                                             border-bottom: 1px solid #D9E2F3;
                                         ">
                                             <strong>
-                                                <t t-if="user.lang and user.lang.startswith('ar')">
+                                                <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                                     البريد الإلكتروني
                                                 </t>
                                                 <t t-else="">
@@ -319,7 +319,7 @@
                                             background-color: #F5F8FC;
                                         ">
                                             <strong>
-                                                <t t-if="user.lang and user.lang.startswith('ar')">
+                                                <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                                     الهاتف
                                                 </t>
                                                 <t t-else="">
@@ -354,7 +354,7 @@
                             font-size: 14px;
                             font-weight: 600;
                         ">
-                            <t t-if="user.lang and user.lang.startswith('ar')">
+                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                 معلومات الإيجار
                             </t>
                             <t t-else="">
@@ -379,7 +379,7 @@
                                         border-bottom: 1px solid #D9E2F3;
                                     ">
                                         <strong>
-                                            <t t-if="user.lang and user.lang.startswith('ar')">
+                                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                                 الدراجة
                                             </t>
                                             <t t-else="">
@@ -405,7 +405,7 @@
                                         border-bottom: 1px solid #D9E2F3;
                                     ">
                                         <strong>
-                                            <t t-if="user.lang and user.lang.startswith('ar')">
+                                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                                 تاريخ بدء الإيجار
                                             </t>
                                             <t t-else="">
@@ -431,7 +431,7 @@
                                         border-bottom: 1px solid #D9E2F3;
                                     ">
                                         <strong>
-                                            <t t-if="user.lang and user.lang.startswith('ar')">
+                                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                                 تاريخ الإرجاع المتوقع
                                             </t>
                                             <t t-else="">
@@ -457,7 +457,7 @@
                                         border-bottom: 1px solid #D9E2F3;
                                     ">
                                         <strong>
-                                            <t t-if="user.lang and user.lang.startswith('ar')">
+                                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                                 تاريخ الإرجاع الفعلي
                                             </t>
                                             <t t-else="">
@@ -479,7 +479,7 @@
                                         <t t-else="">
 
                                             <span style="color: #888888;">
-                                                <t t-if="user.lang and user.lang.startswith('ar')">
+                                                <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                                     غير متوفر
                                                 </t>
                                                 <t t-else="">
@@ -500,7 +500,7 @@
                                         background-color: #F5F8FC;
                                     ">
                                         <strong>
-                                            <t t-if="user.lang and user.lang.startswith('ar')">
+                                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                                 مدة الإيجار
                                             </t>
                                             <t t-else="">
@@ -513,7 +513,7 @@
                                         padding: 8px 12px;
                                     ">
                                         <span t-field="o.duration_days"/>
-                                        <t t-if="user.lang and user.lang.startswith('ar')">
+                                        <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                             أيام
                                         </t>
                                         <t t-else="">
@@ -539,7 +539,7 @@
                             font-size: 14px;
                             font-weight: 600;
                         ">
-                            <t t-if="user.lang and user.lang.startswith('ar')">
+                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                 معلومات الدفع
                             </t>
                             <t t-else="">
@@ -564,7 +564,7 @@
                                         border-bottom: 1px solid #D9E2F3;
                                     ">
                                         <strong>
-                                            <t t-if="user.lang and user.lang.startswith('ar')">
+                                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                                 سعر الإيجار اليومي
                                             </t>
                                             <t t-else="">
@@ -591,7 +591,7 @@
                                         border-bottom: 1px solid #D9E2F3;
                                     ">
                                         <strong>
-                                            <t t-if="user.lang and user.lang.startswith('ar')">
+                                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                                 مدة الإيجار
                                             </t>
                                             <t t-else="">
@@ -606,7 +606,7 @@
                                         border-bottom: 1px solid #D9E2F3;
                                     ">
                                         <span t-field="o.duration_days"/>
-                                        <t t-if="user.lang and user.lang.startswith('ar')">
+                                        <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                             أيام
                                         </t>
                                         <t t-else="">
@@ -626,8 +626,8 @@
                                         font-size: 15px;
                                     ">
                                         <strong>
-                                            <t t-if="user.lang and user.lang.startswith('ar')">
-                                                المبلccالإجمالي
+                                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                                المبلغ الإجمالي
                                             </t>
                                             <t t-else="">
                                                 Total Amount
@@ -667,7 +667,7 @@
                             margin: 0;
                             color: #555555;
                         ">
-                            <t t-if="user.lang and user.lang.startswith('ar')">
+                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                 شكرًا لاختياركم
                             </t>
                             <t t-else="">
@@ -675,14 +675,13 @@
                             </t>
 
                             <strong style="color: #1F4E79;">
-                                <t t-if="user.lang and user.lang.startswith('ar')">
+                                <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
                                     ورشة الدراجات
                                 </t>
                                 <t t-else="">
                                     Bike Workshop
                                 </t>
                             </strong>.
-
                         </p>
 
                     </div>

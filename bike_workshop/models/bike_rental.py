@@ -57,11 +57,14 @@ class BikeRental(models.Model):
         default=0.0,
     )
 
+
     duration_days = fields.Integer(
         string="Rental Duration (Days)",
         compute="_compute_rental_values",
         store=True,
+        aggregator="avg",
     )
+
 
     total_amount = fields.Float(
         string="Total Rental Amount",

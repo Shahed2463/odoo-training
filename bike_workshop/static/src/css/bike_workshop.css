@@ -330,3 +330,65 @@
     border-color: var(--bike-brand-green);
     color: #ffffff;
 }
+/* =========================================================
+   Rami's Bike Workshop - Login Branding
+   ========================================================= */
+
+.bike-login-page {
+    min-height: 100vh;
+    max-width: 100% !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px !important;
+    background: var(--bike-brand-light);
+}
+
+.bike-login-card {
+    width: 100%;
+    max-width: 420px !important;
+    border: 1px solid rgba(130, 187, 72, 0.25) !important;
+    border-top: 5px solid var(--bike-brand-green) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 30px rgba(51, 51, 51, 0.12) !important;
+    background: #ffffff !important;
+}
+
+.bike-login-logo-wrapper {
+    padding-bottom: 20px !important;
+    margin-bottom: 24px !important;
+    border-bottom: 2px solid var(--bike-brand-green) !important;
+}
+
+.bike-login-logo {
+    max-height: 140px !important;
+    max-width: 240px !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+.bike-login-card .btn-primary {
+    background-color: var(--bike-brand-green) !important;
+    border-color: var(--bike-brand-green) !important;
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+.bike-login-card .btn-primary:hover,
+.bike-login-card .btn-primary:focus {
+    background-color: var(--bike-brand-dark) !important;
+    border-color: var(--bike-brand-dark) !important;
+}
+
+.bike-login-card a {
+    color: var(--bike-brand-green);
+}
+
+.bike-login-card a:hover {
+    color: var(--bike-brand-dark);
+}
+
+.bike-login-card input:focus {
+    border-color: var(--bike-brand-green) !important;
+    box-shadow: 0 0 0 0.2rem rgba(130, 187, 72, 0.2) !important;
+}

@@ -77,6 +77,9 @@ class BikeWorkshopDashboard(models.Model):
                 ("start_date", "<=", today),
                 ("expected_return_date", ">=", today),
             ],
+            "create": False,
+            "edit": False,
+            "delete": False,
         }
 
     def action_open_returns_due_today(self):
@@ -91,6 +94,9 @@ class BikeWorkshopDashboard(models.Model):
                 ("state", "=", "confirmed"),
                 ("expected_return_date", "=", today),
             ],
+            "create": False,
+            "edit": False,
+            "delete": False,
         }
 
     def action_open_repairs_in_progress(self):
@@ -102,4 +108,7 @@ class BikeWorkshopDashboard(models.Model):
             "domain": [
                 ("state", "=", "in_progress"),
             ],
+            "create": False,
+            "edit": False,
+            "delete": False,
         }

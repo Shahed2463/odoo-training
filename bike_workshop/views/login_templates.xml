@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="bike_workshop_login_layout"
+              inherit_id="web.login_layout">
+
+        <!-- Brand the login page container -->
+        <xpath expr="//div[hasclass('container')]" position="attributes">
+            <attribute name="class" add="bike-login-page" separator=" "/>
+        </xpath>
+
+        <!-- Brand the login card -->
+        <xpath expr="//div[@style='max-width: 300px;']" position="attributes">
+            <attribute name="class" add="bike-login-card" separator=" "/>
+        </xpath>
+
+        <!-- Replace the default Odoo/company logo -->
+        <xpath expr="//div[hasclass('container')]//img" position="attributes">
+            <attribute name="t-attf-src">/bike_workshop/static/src/img/rami_bike_workshop_logo.png</attribute>
+            <attribute name="alt">Rami's Bike Workshop</attribute>
+            <attribute name="class" add="bike-login-logo" separator=" "/>
+        </xpath>
+
+        <!-- Brand the logo section -->
+        <xpath expr="//div[hasclass('container')]//div[hasclass('text-center')][1]"
+               position="attributes">
+            <attribute name="class" add="bike-login-logo-wrapper" separator=" "/>
+        </xpath>
+
+    </template>
+
+</odoo>

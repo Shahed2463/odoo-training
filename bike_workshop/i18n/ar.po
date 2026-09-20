@@ -1129,3 +1129,8 @@ msgstr "موظفو الورشة"
 #: model_terms:ir.ui.view,arch_db:bike_workshop.portal_my_rentals
 msgid "You do not have any rentals yet."
 msgstr "لا توجد لديك أي إيجارات حتى الآن."
+
+#. module: bike_workshop
+#: model_terms:ir.ui.view,arch_db:bike_workshop.view_bike_workshop_dashboard_form
+msgid "Workshop Operations"
+msgstr "عمليات الورشة"

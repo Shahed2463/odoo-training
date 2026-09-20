@@ -22,6 +22,8 @@
     'data/dashboard_data.xml',
     'reports/rental_agreement_report.xml',
 
+
+    'views/login_templates.xml',
     'views/bike_views.xml',
     'views/bike_rental_views.xml',
     'views/bike_rental_analysis_views.xml',
@@ -31,6 +33,7 @@
     'views/res_users_views.xml',
     'views/dashboard_views.xml',
     'views/portal_templates.xml',
+
 ],
     'assets': {
     'web.assets_backend': [

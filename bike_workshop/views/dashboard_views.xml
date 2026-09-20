@@ -27,9 +27,7 @@
                             </div>
                         </div>
 
-                        <h2 class="bike-dashboard-title">
-                            Workshop Operations
-                        </h2>
+                        <h2 class="bike-dashboard-title">Workshop Operations</h2>
 
                         <div class="row">
 
@@ -149,5 +147,49 @@
         action="action_bike_workshop_dashboard"
         sequence="5"
     />
+
+    <!-- ==================== DASHBOARD READ-ONLY LIST VIEWS ==================== -->
+
+    <record id="view_bike_rental_dashboard_list" model="ir.ui.view">
+        <field name="name">bike.rental.dashboard.list</field>
+        <field name="model">bike.rental</field>
+        <field name="arch" type="xml">
+            <list string="Dashboard Rentals"
+                  create="0"
+                  edit="0"
+                  delete="0">
+                <field name="name"/>
+                <field name="customer_id"/>
+                <field name="bike_id"/>
+                <field name="start_date"/>
+                <field name="expected_return_date"/>
+                <field name="actual_return_date"/>
+                <field name="duration_days"/>
+                <field name="total_amount"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_bike_repair_dashboard_list" model="ir.ui.view">
+        <field name="name">bike.repair.dashboard.list</field>
+        <field name="model">bike.repair</field>
+        <field name="arch" type="xml">
+            <list string="Dashboard Repairs"
+                  create="0"
+                  edit="0"
+                  delete="0">
+                <field name="name"/>
+                <field name="customer_id"/>
+                <field name="bike_source"/>
+                <field name="workshop_bike_id"/>
+                <field name="external_bike_reference"/>
+                <field name="assigned_mechanic"/>
+                <field name="total_parts_cost"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
 
 </odoo>
