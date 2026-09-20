@@ -902,3 +902,34 @@
 .o_form_view .o_statusbar_status .o_arrow_button_current:after {
     border-left-color: #82BB48 !important;
 }
+
+/* Force Rami green on login button */
+.bike-login-card button.btn-primary,
+.bike-login-card .btn-primary {
+    background-color: #82BB48 !important;
+    border-color: #82BB48 !important;
+    color: #FFFFFF !important;
+}
+
+.bike-login-card button.btn-primary:hover,
+.bike-login-card button.btn-primary:focus,
+.bike-login-card .btn-primary:hover,
+.bike-login-card .btn-primary:focus {
+    background-color: #6E9F3D !important;
+    border-color: #6E9F3D !important;
+    color: #FFFFFF !important;
+}
+
+/* Login submit button */
+button[type="submit"].btn-primary {
+    background-color: #82BB48 !important;
+    border-color: #82BB48 !important;
+    color: #FFFFFF !important;
+}
+
+button[type="submit"].btn-primary:hover,
+button[type="submit"].btn-primary:focus {
+    background-color: #6E9F3D !important;
+    border-color: #6E9F3D !important;
+    color: #FFFFFF !important;
+}
