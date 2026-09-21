@@ -993,215 +993,97 @@ button[type="submit"].btn-primary:focus {
     color: #FFFFFF !important;
 }
 
-/* Arabic / RTL support */
-html[dir="rtl"] .bike-workshop-app {
-    direction: rtl;
-}
+/* Arabic / RTL support - Odoo uses body.o_rtl */
 
-html[dir="rtl"] .bike-workshop-app .text-start {
-    text-align: right !important;
-}
-
-html[dir="rtl"] .bike-workshop-app .text-end {
-    text-align: left !important;
-}
-
-/* Arabic / RTL layout */
-body.o_rtl.bike-workshop-app {
-    direction: rtl;
-}
-
-body.o_rtl.bike-workshop-app .bike-workshop-app {
-    direction: rtl;
-}
-
-body.o_rtl.bike-workshop-app .text-start {
-    text-align: right !important;
-}
-
-body.o_rtl.bike-workshop-app .text-end {
-    text-align: left !important;
-}
-
-body.o_rtl.bike-workshop-app .bike-dashboard-brand {
-    direction: rtl;
-}
-
-
-/* Arabic RTL - Odoo */
-html[dir="rtl"] .bike-workshop-app {
+body.o_rtl .bike-workshop-app {
     direction: rtl !important;
 }
 
-html[dir="rtl"] .bike-workshop-app .bike-dashboard-brand {
+body.o_rtl .bike-workshop-app .text-start {
+    text-align: right !important;
+}
+
+body.o_rtl .bike-workshop-app .text-end {
+    text-align: left !important;
+}
+
+body.o_rtl .bike-workshop-app .bike-dashboard-brand {
     direction: rtl !important;
     text-align: right !important;
 }
 
-html[dir="rtl"] .bike-workshop-app .text-start {
-    text-align: right !important;
-}
-
-html[dir="rtl"] .bike-workshop-app .text-end {
-    text-align: left !important;
-}
-
-html[dir="rtl"] .bike-workshop-app .bike-dashboard-btn {
-    direction: rtl;
+body.o_rtl .bike-workshop-app .bike-dashboard-btn {
+    direction: rtl !important;
 }
 
 /* RTL for internal Odoo pages */
-html[dir="rtl"] .o_action_manager,
-html[dir="rtl"] .o_action,
-html[dir="rtl"] .o_list_view,
-html[dir="rtl"] .o_form_view,
-html[dir="rtl"] .o_kanban_view,
-html[dir="rtl"] .o_pivot,
-html[dir="rtl"] .o_graph {
+body.o_rtl .o_web_client,
+body.o_rtl .o_web_client .o_action_manager,
+body.o_rtl .o_web_client .o_action,
+body.o_rtl .o_web_client .o_control_panel,
+body.o_rtl .o_web_client .o_content,
+body.o_rtl .o_web_client .o_list_view,
+body.o_rtl .o_web_client .o_form_view,
+body.o_rtl .o_web_client .o_kanban_view,
+body.o_rtl .o_web_client .o_list_renderer {
     direction: rtl !important;
 }
 
-/* RTL list/table columns */
-html[dir="rtl"] .o_list_table {
+/* RTL list/table */
+body.o_rtl .o_list_table {
     direction: rtl !important;
 }
 
-html[dir="rtl"] .o_list_table th,
-html[dir="rtl"] .o_list_table td {
-    text-align: right;
+body.o_rtl .o_list_table th,
+body.o_rtl .o_list_table td {
+    text-align: right !important;
 }
 
-/* Keep numbers/numeric values readable */
-html[dir="rtl"] .o_list_table .o_list_number {
-    text-align: left;
+body.o_rtl .o_list_table .o_list_number {
+    text-align: left !important;
 }
 
-/* Internal page search/filter area */
-html[dir="rtl"] .o_control_panel {
+/* RTL search/control panel */
+body.o_rtl .o_control_panel,
+body.o_rtl .o_searchview {
     direction: rtl !important;
 }
 
-html[dir="rtl"] .o_searchview {
+body.o_rtl .o_web_client .o_control_panel .o_searchview {
     direction: rtl !important;
 }
 
-
-/* Force RTL inside Odoo Web Client */
-html[dir="rtl"] .o_web_client {
+body.o_rtl .o_web_client .o_control_panel .o_searchview_input_container {
     direction: rtl !important;
 }
 
-html[dir="rtl"] .o_web_client .o_action_manager {
-    direction: rtl !important;
-}
-
-html[dir="rtl"] .o_web_client .o_action {
-    direction: rtl !important;
-}
-
-html[dir="rtl"] .o_web_client .o_control_panel {
-    direction: rtl !important;
-}
-
-html[dir="rtl"] .o_web_client .o_list_view {
-    direction: rtl !important;
-}
-
-html[dir="rtl"] .o_web_client .o_list_table {
-    direction: rtl !important;
-}
-
-html[dir="rtl"] .o_web_client .o_form_view {
-    direction: rtl !important;
-}
-
-html[dir="rtl"] .o_web_client .o_kanban_view {
-    direction: rtl !important;
-}
-
-
-/* Odoo List View - Full RTL */
-html[dir="rtl"] .o_web_client .o_list_renderer {
-    direction: rtl !important;
-}
-
-html[dir="rtl"] .o_web_client .o_list_renderer .o_list_table {
-    direction: rtl !important;
-}
-
-html[dir="rtl"] .o_web_client .o_list_renderer table {
-    direction: rtl !important;
-}
-
-html[dir="rtl"] .o_web_client .o_list_renderer thead,
-html[dir="rtl"] .o_web_client .o_list_renderer tbody {
-    direction: rtl !important;
-}
-
-html[dir="rtl"] .o_web_client .o_list_renderer th,
-html[dir="rtl"] .o_web_client .o_list_renderer td {
-    direction: rtl !important;
-}
-
-/* Force RTL for Arabic Odoo backend */
-body.o_web_client {
-    direction: rtl !important;
-}
-
-.o_web_client {
-    direction: rtl !important;
-}
-
-.o_web_client .o_action_manager,
-.o_web_client .o_action,
-.o_web_client .o_control_panel,
-.o_web_client .o_content,
-.o_web_client .o_form_view,
-.o_web_client .o_list_view,
-.o_web_client .o_kanban_view,
-.o_web_client .o_list_renderer {
-    direction: rtl !important;
-}
-
-/* Fix Odoo search bar for RTL */
-html[dir="rtl"] .o_web_client .o_control_panel .o_searchview {
-    direction: rtl !important;
-}
-
-html[dir="rtl"] .o_web_client .o_control_panel .o_searchview_input_container {
-    direction: rtl !important;
-}
-
-html[dir="rtl"] .o_web_client .o_control_panel .o_searchview_input {
+body.o_rtl .o_web_client .o_control_panel .o_searchview_input {
     direction: rtl !important;
     text-align: right !important;
 }
 
-/* Fix search filters dropdown position in RTL */
-html[dir="rtl"] .o_searchview_dropdown_toggler {
-    order: -1 !important;
-}
-
-/* Keep search view elements correctly ordered in RTL */
-html[dir="rtl"] .o_searchview {
-    display: flex !important;
-    flex-direction: row !important;
-}
-
-html[dir="rtl"] .o_searchview_dropdown_toggler {
-    order: -1 !important;
-}
-
-/* Keep search view elements correctly ordered in RTL */
-html[dir="rtl"] .o_searchview {
-    display: flex !important;
-    flex-direction: row !important;
-}
-
-html[dir="rtl"] .o_searchview_dropdown_toggler {
-    order: -1 !important;
-}
-
-.o_cp_searchview {
+/* Put the search/filter dropdown on the correct side in Arabic */
+body.o_rtl .o_cp_searchview {
     flex-direction: row-reverse !important;
+}
+
+body.o_rtl .o_searchview {
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+
+/* Switch the whole Odoo web client to RTL only in Arabic */
+body.o_rtl.o_web_client {
+    direction: rtl !important;
+}
+
+/* Search dropdown arrow: right side in Arabic */
+body.o_rtl.o_web_client .o_cp_searchview {
+    flex-direction: row-reverse !important;
+}
+
+/* Arabic search dropdown: keep the filter arrow on the right */
+body.o_rtl.o_web_client .o_searchview_dropdown_toggler {
+    order: 0 !important;
 }
