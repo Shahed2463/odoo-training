@@ -992,3 +992,216 @@ button[type="submit"].btn-primary:focus {
     border-color: #6E9F3D !important;
     color: #FFFFFF !important;
 }
+
+/* Arabic / RTL support */
+html[dir="rtl"] .bike-workshop-app {
+    direction: rtl;
+}
+
+html[dir="rtl"] .bike-workshop-app .text-start {
+    text-align: right !important;
+}
+
+html[dir="rtl"] .bike-workshop-app .text-end {
+    text-align: left !important;
+}
+
+/* Arabic / RTL layout */
+body.o_rtl.bike-workshop-app {
+    direction: rtl;
+}
+
+body.o_rtl.bike-workshop-app .bike-workshop-app {
+    direction: rtl;
+}
+
+body.o_rtl.bike-workshop-app .text-start {
+    text-align: right !important;
+}
+
+body.o_rtl.bike-workshop-app .text-end {
+    text-align: left !important;
+}
+
+body.o_rtl.bike-workshop-app .bike-dashboard-brand {
+    direction: rtl;
+}
+
+
+/* Arabic RTL - Odoo */
+html[dir="rtl"] .bike-workshop-app {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] .bike-workshop-app .bike-dashboard-brand {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+html[dir="rtl"] .bike-workshop-app .text-start {
+    text-align: right !important;
+}
+
+html[dir="rtl"] .bike-workshop-app .text-end {
+    text-align: left !important;
+}
+
+html[dir="rtl"] .bike-workshop-app .bike-dashboard-btn {
+    direction: rtl;
+}
+
+/* RTL for internal Odoo pages */
+html[dir="rtl"] .o_action_manager,
+html[dir="rtl"] .o_action,
+html[dir="rtl"] .o_list_view,
+html[dir="rtl"] .o_form_view,
+html[dir="rtl"] .o_kanban_view,
+html[dir="rtl"] .o_pivot,
+html[dir="rtl"] .o_graph {
+    direction: rtl !important;
+}
+
+/* RTL list/table columns */
+html[dir="rtl"] .o_list_table {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] .o_list_table th,
+html[dir="rtl"] .o_list_table td {
+    text-align: right;
+}
+
+/* Keep numbers/numeric values readable */
+html[dir="rtl"] .o_list_table .o_list_number {
+    text-align: left;
+}
+
+/* Internal page search/filter area */
+html[dir="rtl"] .o_control_panel {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] .o_searchview {
+    direction: rtl !important;
+}
+
+
+/* Force RTL inside Odoo Web Client */
+html[dir="rtl"] .o_web_client {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] .o_web_client .o_action_manager {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] .o_web_client .o_action {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] .o_web_client .o_control_panel {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] .o_web_client .o_list_view {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] .o_web_client .o_list_table {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] .o_web_client .o_form_view {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] .o_web_client .o_kanban_view {
+    direction: rtl !important;
+}
+
+
+/* Odoo List View - Full RTL */
+html[dir="rtl"] .o_web_client .o_list_renderer {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] .o_web_client .o_list_renderer .o_list_table {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] .o_web_client .o_list_renderer table {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] .o_web_client .o_list_renderer thead,
+html[dir="rtl"] .o_web_client .o_list_renderer tbody {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] .o_web_client .o_list_renderer th,
+html[dir="rtl"] .o_web_client .o_list_renderer td {
+    direction: rtl !important;
+}
+
+/* Force RTL for Arabic Odoo backend */
+body.o_web_client {
+    direction: rtl !important;
+}
+
+.o_web_client {
+    direction: rtl !important;
+}
+
+.o_web_client .o_action_manager,
+.o_web_client .o_action,
+.o_web_client .o_control_panel,
+.o_web_client .o_content,
+.o_web_client .o_form_view,
+.o_web_client .o_list_view,
+.o_web_client .o_kanban_view,
+.o_web_client .o_list_renderer {
+    direction: rtl !important;
+}
+
+/* Fix Odoo search bar for RTL */
+html[dir="rtl"] .o_web_client .o_control_panel .o_searchview {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] .o_web_client .o_control_panel .o_searchview_input_container {
+    direction: rtl !important;
+}
+
+html[dir="rtl"] .o_web_client .o_control_panel .o_searchview_input {
+    direction: rtl !important;
+    text-align: right !important;
+}
+
+/* Fix search filters dropdown position in RTL */
+html[dir="rtl"] .o_searchview_dropdown_toggler {
+    order: -1 !important;
+}
+
+/* Keep search view elements correctly ordered in RTL */
+html[dir="rtl"] .o_searchview {
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+html[dir="rtl"] .o_searchview_dropdown_toggler {
+    order: -1 !important;
+}
+
+/* Keep search view elements correctly ordered in RTL */
+html[dir="rtl"] .o_searchview {
+    display: flex !important;
+    flex-direction: row !important;
+}
+
+html[dir="rtl"] .o_searchview_dropdown_toggler {
+    order: -1 !important;
+}
+
+.o_cp_searchview {
+    flex-direction: row-reverse !important;
+}
