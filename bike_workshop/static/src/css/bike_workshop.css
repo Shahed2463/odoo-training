@@ -978,3 +978,17 @@ button[type="submit"].btn-primary:focus {
     border-color: #6E9F3D !important;
     color: #FFFFFF !important;
 }
+
+/* Odoo Error Dialog buttons */
+.o_dialog .btn-primary {
+    background-color: #82BB48 !important;
+    border-color: #82BB48 !important;
+    color: #FFFFFF !important;
+}
+
+.o_dialog .btn-primary:hover,
+.o_dialog .btn-primary:focus {
+    background-color: #6E9F3D !important;
+    border-color: #6E9F3D !important;
+    color: #FFFFFF !important;
+}
