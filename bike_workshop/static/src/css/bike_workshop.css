@@ -1112,3 +1112,17 @@ button.btn.btn-primary.o-dropdown.dropdown-toggle:focus {
     border-color: #6E9F3D !important;
     color: #FFFFFF !important;
 }
+
+/* Return Bike button */
+button[name="action_return"] {
+    background-color: #82BB48 !important;
+    border-color: #82BB48 !important;
+    color: #FFFFFF !important;
+}
+
+button[name="action_return"]:hover,
+button[name="action_return"]:focus {
+    background-color: #6E9F3D !important;
+    border-color: #6E9F3D !important;
+    color: #FFFFFF !important;
+}
