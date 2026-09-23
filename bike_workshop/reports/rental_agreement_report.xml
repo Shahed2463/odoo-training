@@ -34,7 +34,8 @@
 
                         <!-- Company Logo -->
                             <img
-                                src="/bike_workshop/static/src/img/rami_bike_workshop_logo.png"
+                                t-if="env.company.logo"
+                                t-att-src="image_data_uri(env.company.logo)"
 
                                 style="
                                     max-height: 65px;

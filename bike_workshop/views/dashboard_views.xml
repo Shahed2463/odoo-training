@@ -38,7 +38,7 @@
                                     </div>
 
                                     <div class="bike-stat-label">
-                                        Active Rentals Today
+                                        <span t-translation="on">Active Rentals Today</span>
                                     </div>
 
                                     <div class="bike-stat-value">

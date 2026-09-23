@@ -331,6 +331,13 @@ msgstr "لوحة عمليات الورشة"
 msgid "Operations Dashboard"
 msgstr "لوحة العمليات"
 
+
+#. module: bike_workshop
+#. odoo-python
+#: code:addons/bike_workshop/models/dashboard.py:72
+msgid "Active Rentals Today"
+msgstr "الإيجارات النشطة اليوم"
+
 #. module: bike_workshop
 # module: bike_workshop
 #: model_terms:ir.ui.view,arch_db:bike_workshop.view_bike_workshop_dashboard_form
@@ -339,9 +346,13 @@ msgid "Active Rentals Today"
 msgstr "الإيجارات النشطة اليوم"
 
 #. module: bike_workshop
+
 # module: bike_workshop
 #: model_terms:ir.ui.view,arch_db:bike_workshop.view_bike_workshop_dashboard_form
 #: model:ir.model.fields,field_description:bike_workshop.field_bike_workshop_dashboard__returns_due_today
+#. module: bike_workshop
+#. odoo-python
+#: code:addons/bike_workshop/models/dashboard.py:98
 msgid "Returns Due Today"
 msgstr "الإرجاعات المستحقة اليوم"
 
@@ -349,6 +360,9 @@ msgstr "الإرجاعات المستحقة اليوم"
 # module: bike_workshop
 #: model_terms:ir.ui.view,arch_db:bike_workshop.view_bike_workshop_dashboard_form
 #: model:ir.model.fields,field_description:bike_workshop.field_bike_workshop_dashboard__repairs_in_progress
+#. module: bike_workshop
+#. odoo-python
+#: code:addons/bike_workshop/models/dashboard.py:121
 msgid "Repairs In Progress"
 msgstr "الإصلاحات قيد التنفيذ"
 
@@ -383,9 +397,15 @@ msgid "My Rentals Portal Entry"
 msgstr "إيجاراتي"
 
 #. module: bike_workshop
-# module: bike_workshop
 msgid "My Rental Details"
 msgstr "تفاصيل الإيجار"
+
+#. module: bike_workshop
+#: model_terms:ir.ui.view,arch_db:bike_workshop.portal_my_rental
+msgid "Rental Details"
+msgstr "تفاصيل الإيجار"
+
+
 
 #. module: bike_workshop
 # module: bike_workshop

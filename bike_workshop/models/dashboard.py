@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import _, fields, models
 
 
 class BikeWorkshopDashboard(models.Model):
@@ -69,7 +69,7 @@ class BikeWorkshopDashboard(models.Model):
 
         return {
             "type": "ir.actions.act_window",
-            "name": "Active Rentals Today",
+            "name": self.env._("Active Rentals Today"),
             "res_model": "bike.rental",
             "view_mode": "list",
             "views": [
@@ -95,7 +95,7 @@ class BikeWorkshopDashboard(models.Model):
 
         return {
             "type": "ir.actions.act_window",
-            "name": "Returns Due Today",
+            "name": self.env._("Returns Due Today"),
             "res_model": "bike.rental",
             "view_mode": "list",
             "views": [
@@ -118,7 +118,7 @@ class BikeWorkshopDashboard(models.Model):
     def action_open_repairs_in_progress(self):
         return {
             "type": "ir.actions.act_window",
-            "name": "Repairs In Progress",
+            "name": self.env._("Repairs In Progress"),
             "res_model": "bike.repair",
             "view_mode": "list",
             "views": [

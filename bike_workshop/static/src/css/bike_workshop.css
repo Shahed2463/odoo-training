@@ -1087,3 +1087,14 @@ body.o_rtl.o_web_client .o_cp_searchview {
 body.o_rtl.o_web_client .o_searchview_dropdown_toggler {
     order: 0 !important;
 }
+
+/* Improve navbar text contrast */
+.o_main_navbar .o_menu_sections .o_nav_entry,
+.o_main_navbar .o_menu_sections .dropdown-toggle {
+    color: #E9ECEF !important;
+}
+
+.o_main_navbar .o_menu_sections .o_nav_entry:hover,
+.o_main_navbar .o_menu_sections .dropdown-toggle:hover {
+    color: #FFFFFF !important;
+}
