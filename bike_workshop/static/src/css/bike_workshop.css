@@ -1098,3 +1098,17 @@ body.o_rtl.o_web_client .o_searchview_dropdown_toggler {
 .o_main_navbar .o_menu_sections .dropdown-toggle:hover {
     color: #FFFFFF !important;
 }
+
+/* Pivot Measures button */
+button.btn.btn-primary.o-dropdown.dropdown-toggle {
+    background-color: #82BB48 !important;
+    border-color: #82BB48 !important;
+    color: #FFFFFF !important;
+}
+
+button.btn.btn-primary.o-dropdown.dropdown-toggle:hover,
+button.btn.btn-primary.o-dropdown.dropdown-toggle:focus {
+    background-color: #6E9F3D !important;
+    border-color: #6E9F3D !important;
+    color: #FFFFFF !important;
+}
