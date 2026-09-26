@@ -15,12 +15,13 @@
 
     <!-- Rental Agreement Template -->
     <template id="rental_agreement_template">
+        <meta charset="UTF-8"/>
 
-        <t t-call="web.html_container">
+        <t t-call="web.html_container" t-translation="off">
 
             <t t-foreach="docs" t-as="o">
 
-                <div class="page">
+                <div class="page" style="font-family: 'Noto Sans Arabic', 'Noto Sans', sans-serif;">
 
                     <!-- Workshop Company Information -->
                     <div style="
@@ -28,29 +29,34 @@
                         margin-top: -15px;
                         margin-bottom: 12px;
                         padding-bottom: 10px;
-                        border-bottom: 2px solid #1F4E79;
+                        border-bottom: 2px solid #82BB48;
                     ">
 
                         <!-- Company Logo -->
-                        <t t-if="env.company.logo">
                             <img
+                                t-if="env.company.logo"
                                 t-att-src="image_data_uri(env.company.logo)"
+
                                 style="
-                                    max-height: 65px;
-                                    max-width: 160px;
+                                    max-height: 85px;
+                                    max-width: 200px;
                                     margin-bottom: 3px;
                                 "
                             />
-                        </t>
 
                         <!-- Company Name -->
                         <h2 style="
-                            color: #1F4E79;
+                            color: #82BB48;
                             margin: 2px 0;
                             font-size: 22px;
                             font-weight: 700;
                         ">
-                            <span t-out="env.company.name"/>
+                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+    <span>ورشة رامي للدراجات</span>
+</t>
+<t t-else="">
+    <span t-out="env.company.name"/>
+</t>
                         </h2>
 
                         <!-- Company Contact Information -->
@@ -81,17 +87,22 @@
                     <div style="
                         text-align: center;
                         padding: 12px 0 10px 0;
-                        border-bottom: 3px solid #1F4E79;
+                        border-bottom: 3px solid #82BB48;
                         margin-bottom: 20px;
                     ">
 
                         <h1 style="
-                            color: #1F4E79;
+                            color: #82BB48;
                             font-size: 28px;
                             margin: 0;
                             font-weight: 700;
                         ">
-                            BIKE WORKSHOP
+                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                ورشة الدراجات
+                            </t>
+                            <t t-else="">
+                                BIKE WORKSHOP
+                            </t>
                         </h1>
 
                         <h2 style="
@@ -100,7 +111,12 @@
                             margin: 4px 0 0 0;
                             font-weight: 500;
                         ">
-                            Rental Agreement
+                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                اتفاقية الإيجار
+                            </t>
+                            <t t-else="">
+                                Rental Agreement
+                            </t>
                         </h2>
 
                     </div>
@@ -116,21 +132,26 @@
                             <td style="
                                 width: 50%;
                                 padding: 11px;
-                                background-color: #EEF5FB;
-                                border-left: 4px solid #1F4E79;
+                                background-color: #F1F8E9;
+                                border-left: 4px solid #82BB48;
                             ">
 
                                 <span style="
                                     color: #666666;
                                     font-size: 11px;
                                 ">
-                                    RENTAL REFERENCE
+                                    <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                        مرجع الإيجار
+                                    </t>
+                                    <t t-else="">
+                                        RENTAL REFERENCE
+                                    </t>
                                 </span>
 
                                 <br/>
 
                                 <strong style="
-                                    color: #1F4E79;
+                                    color: #82BB48;
                                     font-size: 16px;
                                 ">
                                     <span t-field="o.name"/>
@@ -142,23 +163,68 @@
                                 width: 50%;
                                 padding: 11px;
                                 text-align: right;
-                                background-color: #EEF5FB;
+                                background-color: #F1F8E9;
                             ">
 
                                 <span style="
                                     color: #666666;
                                     font-size: 11px;
                                 ">
-                                    STATUS
+                                    <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                        الحالة
+                                    </t>
+                                    <t t-else="">
+                                        STATUS
+                                    </t>
                                 </span>
 
                                 <br/>
 
                                 <strong style="
-                                    color: #1F4E79;
+                                    color: #82BB48;
                                     font-size: 14px;
                                 ">
-                                    <span t-field="o.state"/>
+
+                                    <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+
+                                        <t t-if="o.state == 'draft'">
+                                            مسودة
+                                        </t>
+
+                                        <t t-elif="o.state == 'confirmed'">
+                                            مؤكد
+                                        </t>
+
+                                        <t t-elif="o.state == 'returned'">
+                                            مُعاد
+                                        </t>
+
+                                        <t t-else="">
+                                            <span t-out="o.state"/>
+                                        </t>
+
+                                    </t>
+
+                                    <t t-else="">
+
+                                        <t t-if="o.state == 'draft'">
+                                            Draft
+                                        </t>
+
+                                        <t t-elif="o.state == 'confirmed'">
+                                            Confirmed
+                                        </t>
+
+                                        <t t-elif="o.state == 'returned'">
+                                            Returned
+                                        </t>
+
+                                        <t t-else="">
+                                            <span t-out="o.state"/>
+                                        </t>
+
+                                    </t>
+
                                 </strong>
 
                             </td>
@@ -170,13 +236,18 @@
                     <div style="margin-top: 18px;">
 
                         <div style="
-                            background-color: #1F4E79;
+                            background-color: #82BB48;
                             color: white;
                             padding: 8px 12px;
                             font-size: 14px;
                             font-weight: 600;
                         ">
-                            Customer Information
+                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                معلومات العميل
+                            </t>
+                            <t t-else="">
+                                Customer Information
+                            </t>
                         </div>
 
                         <table style="
@@ -195,7 +266,14 @@
                                         background-color: #F5F8FC;
                                         border-bottom: 1px solid #D9E2F3;
                                     ">
-                                        <strong>Customer</strong>
+                                        <strong>
+                                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                                العميل
+                                            </t>
+                                            <t t-else="">
+                                                Customer
+                                            </t>
+                                        </strong>
                                     </td>
 
                                     <td style="
@@ -216,7 +294,14 @@
                                             background-color: #F5F8FC;
                                             border-bottom: 1px solid #D9E2F3;
                                         ">
-                                            <strong>Email</strong>
+                                            <strong>
+                                                <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                                    البريد الإلكتروني
+                                                </t>
+                                                <t t-else="">
+                                                    Email
+                                                </t>
+                                            </strong>
                                         </td>
 
                                         <td style="
@@ -238,7 +323,14 @@
                                             padding: 8px 12px;
                                             background-color: #F5F8FC;
                                         ">
-                                            <strong>Phone</strong>
+                                            <strong>
+                                                <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                                    الهاتف
+                                                </t>
+                                                <t t-else="">
+                                                    Phone
+                                                </t>
+                                            </strong>
                                         </td>
 
                                         <td style="
@@ -261,13 +353,18 @@
                     <div style="margin-top: 22px;">
 
                         <div style="
-                            background-color: #1F4E79;
+                            background-color: #82BB48;
                             color: white;
                             padding: 8px 12px;
                             font-size: 14px;
                             font-weight: 600;
                         ">
-                            Rental Information
+                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                معلومات الإيجار
+                            </t>
+                            <t t-else="">
+                                Rental Information
+                            </t>
                         </div>
 
                         <table style="
@@ -286,7 +383,14 @@
                                         background-color: #F5F8FC;
                                         border-bottom: 1px solid #D9E2F3;
                                     ">
-                                        <strong>Bike</strong>
+                                        <strong>
+                                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                                الدراجة
+                                            </t>
+                                            <t t-else="">
+                                                Bike
+                                            </t>
+                                        </strong>
                                     </td>
 
                                     <td style="
@@ -305,7 +409,14 @@
                                         background-color: #F5F8FC;
                                         border-bottom: 1px solid #D9E2F3;
                                     ">
-                                        <strong>Rental Start Date</strong>
+                                        <strong>
+                                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                                تاريخ بدء الإيجار
+                                            </t>
+                                            <t t-else="">
+                                                Rental Start Date
+                                            </t>
+                                        </strong>
                                     </td>
 
                                     <td style="
@@ -324,7 +435,14 @@
                                         background-color: #F5F8FC;
                                         border-bottom: 1px solid #D9E2F3;
                                     ">
-                                        <strong>Expected Return Date</strong>
+                                        <strong>
+                                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                                تاريخ الإرجاع المتوقع
+                                            </t>
+                                            <t t-else="">
+                                                Expected Return Date
+                                            </t>
+                                        </strong>
                                     </td>
 
                                     <td style="
@@ -343,12 +461,18 @@
                                         background-color: #F5F8FC;
                                         border-bottom: 1px solid #D9E2F3;
                                     ">
-                                        <strong>Actual Return Date</strong>
+                                        <strong>
+                                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                                تاريخ الإرجاع الفعلي
+                                            </t>
+                                            <t t-else="">
+                                                Actual Return Date
+                                            </t>
+                                        </strong>
                                     </td>
 
                                     <td style="
                                         padding: 8px 12px;
-                                        border-bottom: 1px solid #D9E2F3;
                                     ">
 
                                         <t t-if="o.actual_return_date">
@@ -360,7 +484,12 @@
                                         <t t-else="">
 
                                             <span style="color: #888888;">
-                                                N/A
+                                                <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                                    غير متوفر
+                                                </t>
+                                                <t t-else="">
+                                                    N/A
+                                                </t>
                                             </span>
 
                                         </t>
@@ -375,14 +504,26 @@
                                         padding: 8px 12px;
                                         background-color: #F5F8FC;
                                     ">
-                                        <strong>Rental Duration</strong>
+                                        <strong>
+                                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                                مدة الإيجار
+                                            </t>
+                                            <t t-else="">
+                                                Rental Duration
+                                            </t>
+                                        </strong>
                                     </td>
 
                                     <td style="
                                         padding: 8px 12px;
                                     ">
                                         <span t-field="o.duration_days"/>
-                                        Days
+                                        <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                            أيام
+                                        </t>
+                                        <t t-else="">
+                                            Days
+                                        </t>
                                     </td>
 
                                 </tr>
@@ -397,13 +538,18 @@
                     <div style="margin-top: 22px;">
 
                         <div style="
-                            background-color: #1F4E79;
+                            background-color: #82BB48;
                             color: white;
                             padding: 8px 12px;
                             font-size: 14px;
                             font-weight: 600;
                         ">
-                            Payment Information
+                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                معلومات الدفع
+                            </t>
+                            <t t-else="">
+                                Payment Information
+                            </t>
                         </div>
 
                         <table style="
@@ -422,7 +568,14 @@
                                         background-color: #F5F8FC;
                                         border-bottom: 1px solid #D9E2F3;
                                     ">
-                                        <strong>Daily Rental Price</strong>
+                                        <strong>
+                                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                                سعر الإيجار اليومي
+                                            </t>
+                                            <t t-else="">
+                                                Daily Rental Price
+                                            </t>
+                                        </strong>
                                     </td>
 
                                     <td style="
@@ -442,7 +595,14 @@
                                         background-color: #F5F8FC;
                                         border-bottom: 1px solid #D9E2F3;
                                     ">
-                                        <strong>Rental Duration</strong>
+                                        <strong>
+                                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                                مدة الإيجار
+                                            </t>
+                                            <t t-else="">
+                                                Rental Duration
+                                            </t>
+                                        </strong>
                                     </td>
 
                                     <td style="
@@ -451,7 +611,12 @@
                                         border-bottom: 1px solid #D9E2F3;
                                     ">
                                         <span t-field="o.duration_days"/>
-                                        Days
+                                        <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                            أيام
+                                        </t>
+                                        <t t-else="">
+                                            Days
+                                        </t>
                                     </td>
 
                                 </tr>
@@ -462,17 +627,24 @@
                                     <td style="
                                         padding: 12px;
                                         background-color: #DCEAF7;
-                                        color: #1F4E79;
+                                        color: #82BB48;
                                         font-size: 15px;
                                     ">
-                                        <strong>Total Amount</strong>
+                                        <strong>
+                                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                                المبلغ الإجمالي
+                                            </t>
+                                            <t t-else="">
+                                                Total Amount
+                                            </t>
+                                        </strong>
                                     </td>
 
                                     <td style="
                                         padding: 12px;
                                         text-align: right;
                                         background-color: #DCEAF7;
-                                        color: #1F4E79;
+                                        color: #82BB48;
                                         font-size: 17px;
                                     ">
                                         <strong>
@@ -500,9 +672,20 @@
                             margin: 0;
                             color: #555555;
                         ">
-                            Thank you for choosing
-                            <strong style="color: #1F4E79;">
-                                Bike Workshop
+                            <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                شكرًا لاختياركم
+                            </t>
+                            <t t-else="">
+                                Thank you for choosing
+                            </t>
+
+                            <strong style="color: #82BB48;">
+                                <t t-if="o.customer_id.lang and o.customer_id.lang.startswith('ar')">
+                                    ورشة الدراجات
+                                </t>
+                                <t t-else="">
+                                    Bike Workshop
+                                </t>
                             </strong>.
                         </p>
 

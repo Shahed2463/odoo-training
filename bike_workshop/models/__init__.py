@@ -7,3 +7,4 @@ from . import bike_repair_part_line
 from . import res_partner
 from . import product
 from . import dashboard
+from . import report_encoding
