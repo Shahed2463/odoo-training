@@ -12,12 +12,14 @@
         'product',
         'stock',
         'portal',
+        'l10n_jo',
     ],
 
     'data': [
     'security/bike_security.xml',
     'security/ir.model.access.csv',
 
+    'data/currency_data.xml',
     'data/company_data.xml',
     'data/bike_sequence.xml',
     'data/dashboard_data.xml',
