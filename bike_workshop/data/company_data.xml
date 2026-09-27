@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="base.main_company" model="res.company">
+        <field name="name">Rami's Bike Workshop</field>
+        <field name="logo" type="base64"
+               file="bike_workshop/static/src/img/rami_bike_workshop_logo.png"/>
+    </record>
+
+</odoo>

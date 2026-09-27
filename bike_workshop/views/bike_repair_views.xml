@@ -10,6 +10,7 @@
             <field name="arch" type="xml">
                 <list
                     string="Repair Jobs"
+                    class="bike-workshop-backend"
                     decoration-info="state == 'draft'"
                     decoration-warning="state == 'in_progress'"
                     decoration-success="state == 'completed'"
@@ -91,7 +92,7 @@
             <field name="name">bike.repair.form</field>
             <field name="model">bike.repair</field>
             <field name="arch" type="xml">
-                <form string="Repair Job">
+                <form string="Repair Job" class="bike-workshop-backend">
 
                     <header>
 
@@ -220,6 +221,7 @@
             <field name="name">Repair Jobs</field>
             <field name="res_model">bike.repair</field>
             <field name="view_mode">list,form</field>
+            <field name="view_id" ref="view_bike_repair_list"/>
             <field name="search_view_id" ref="view_bike_repair_search"/>
 </record>
 

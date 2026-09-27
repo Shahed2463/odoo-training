@@ -14,7 +14,7 @@
             <field name="name">bike.workshop.list.v2</field>
             <field name="model">bike.workshop</field>
             <field name="arch" type="xml">
-                <list string="Bikes">
+                <list string="Bikes" class="bike-workshop-backend">
                     <field name="name"/>
                     <field name="brand"/>
                     <field name="bike_type"/>
@@ -29,14 +29,14 @@
             <field name="name">bike.workshop.form.v2</field>
             <field name="model">bike.workshop</field>
             <field name="arch" type="xml">
-                <form string="Bike">
+                <form string="Bike" class="bike-workshop-backend">
                     <sheet>
 
                         <div name="button_box" class="oe_button_box">
                             <button
                                 name="action_view_rentals"
                                 type="object"
-                                class="oe_stat_button"
+                                class="oe_stat_button rentals_stat_button"
                                 icon="fa-calendar"
                             >
                                 <field

@@ -7,31 +7,41 @@
         <field name="model">bike.workshop.dashboard</field>
         <field name="arch" type="xml">
 
-            <form string="Workshop Operations Dashboard" create="0" edit="0" delete="0">
+            <form string="" create="0" edit="0" delete="0">
                 <sheet>
 
-                    <div class="oe_title">
-                        <h1>
-                            <span>Workshop Operations Dashboard</span>
-                        </h1>
-                    </div>
+                    <!-- Dashboard -->
+                    <div class="bike-dashboard">
 
-                    <div class="row">
+                        <!-- Workshop Branding -->
+                        <div class="bike-dashboard-brand">
+                            <img
+                                src="/bike_workshop/static/src/img/rami_bike_workshop_logo.png"
+                                alt="Rami's Bike Workshop"
+                                class="bike-workshop-logo"
+                            />
 
-                        <!-- Active Rentals Today -->
-                        <div class="col-lg-4 col-md-4 col-sm-12">
-                            <div class="card mb-4">
-                                <div class="card-body text-center">
+                            <div>
+                                <h1 t-translation="on">Workshop Operations Dashboard</h1>
+                                <p>Rami's Bike Workshop</p>
+                            </div>
+                        </div>
 
-                                    <h3>
-                                         <span>Active Rentals Today</span>
-                                    </h3>
+                        <div class="row">
 
-                                    <div style="
-                                        font-size: 40px;
-                                        font-weight: bold;
-                                        margin: 15px;
-                                    ">
+                            <!-- Active Rentals Today -->
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="bike-stat-card mb-4">
+
+                                    <div class="bike-stat-icon">
+                                        🚲
+                                    </div>
+
+                                    <div class="bike-stat-label">
+                                        <span t-translation="on">Active Rentals Today</span>
+                                    </div>
+
+                                    <div class="bike-stat-value">
                                         <field
                                             name="active_rentals_today"
                                             nolabel="1"
@@ -42,27 +52,25 @@
                                         name="action_open_active_rentals"
                                         type="object"
                                         string="View Rentals"
-                                        class="btn btn-primary"
+                                        class="btn bike-dashboard-btn"
                                     />
 
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Returns Due Today -->
-                        <div class="col-lg-4 col-md-4 col-sm-12">
-                            <div class="card mb-4">
-                                <div class="card-body text-center">
+                            <!-- Returns Due Today -->
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="bike-stat-card mb-4">
 
-                                    <h3>
-                                        <span>Returns Due Today</span>
-                                    </h3>
+                                    <div class="bike-stat-icon">
+                                        📅
+                                    </div>
 
-                                    <div style="
-                                        font-size: 40px;
-                                        font-weight: bold;
-                                        margin: 15px;
-                                    ">
+                                    <div class="bike-stat-label">
+                                        Returns Due Today
+                                    </div>
+
+                                    <div class="bike-stat-value">
                                         <field
                                             name="returns_due_today"
                                             nolabel="1"
@@ -73,27 +81,25 @@
                                         name="action_open_returns_due_today"
                                         type="object"
                                         string="View Returns"
-                                        class="btn btn-primary"
+                                        class="btn bike-dashboard-btn"
                                     />
 
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- Repairs In Progress -->
-                        <div class="col-lg-4 col-md-4 col-sm-12">
-                            <div class="card mb-4">
-                                <div class="card-body text-center">
+                            <!-- Repairs In Progress -->
+                            <div class="col-lg-4 col-md-4 col-sm-12">
+                                <div class="bike-stat-card mb-4">
 
-                                    <h3>
-                                        <span>Repairs In Progress</span>
-                                    </h3>
+                                    <div class="bike-stat-icon">
+                                        🔧
+                                    </div>
 
-                                    <div style="
-                                        font-size: 40px;
-                                        font-weight: bold;
-                                        margin: 15px;
-                                    ">
+                                    <div class="bike-stat-label">
+                                        Repairs In Progress
+                                    </div>
+
+                                    <div class="bike-stat-value">
                                         <field
                                             name="repairs_in_progress"
                                             nolabel="1"
@@ -104,11 +110,12 @@
                                         name="action_open_repairs_in_progress"
                                         type="object"
                                         string="View Repairs"
-                                        class="btn btn-primary"
+                                        class="btn bike-dashboard-btn"
                                     />
 
                                 </div>
                             </div>
+
                         </div>
 
                     </div>
@@ -138,5 +145,49 @@
         action="action_bike_workshop_dashboard"
         sequence="5"
     />
+
+    <!-- ==================== DASHBOARD READ-ONLY LIST VIEWS ==================== -->
+
+    <record id="view_bike_rental_dashboard_list" model="ir.ui.view">
+        <field name="name">bike.rental.dashboard.list</field>
+        <field name="model">bike.rental</field>
+        <field name="arch" type="xml">
+            <list string="Dashboard Rentals"
+                  create="0"
+                  edit="0"
+                  delete="0">
+                <field name="name"/>
+                <field name="customer_id"/>
+                <field name="bike_id"/>
+                <field name="start_date"/>
+                <field name="expected_return_date"/>
+                <field name="actual_return_date"/>
+                <field name="duration_days"/>
+                <field name="total_amount"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_bike_repair_dashboard_list" model="ir.ui.view">
+        <field name="name">bike.repair.dashboard.list</field>
+        <field name="model">bike.repair</field>
+        <field name="arch" type="xml">
+            <list string="Dashboard Repairs"
+                  create="0"
+                  edit="0"
+                  delete="0">
+                <field name="name"/>
+                <field name="customer_id"/>
+                <field name="bike_source"/>
+                <field name="workshop_bike_id"/>
+                <field name="external_bike_reference"/>
+                <field name="assigned_mechanic"/>
+                <field name="total_parts_cost"/>
+                <field name="state" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
 
 </odoo>

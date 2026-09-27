@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Activate Jordanian Dinar -->
+    <function name="write" model="ir.model.data">
+        <function name="search" model="ir.model.data">
+            <value eval="[('module', '=', 'base'), ('name', '=', 'JOD')]"/>
+        </function>
+        <value eval="{'noupdate': False}"/>
+    </function>
+
+    <record id="base.JOD" model="res.currency">
+        <field name="active">True</field>
+    </record>
+
+    <function name="write" model="ir.model.data">
+        <function name="search" model="ir.model.data">
+            <value eval="[('module', '=', 'base'), ('name', '=', 'JOD')]"/>
+        </function>
+        <value eval="{'noupdate': True}"/>
+    </function>
+
+    <!-- Set workshop company currency to JOD -->
+    <function model="res.company" name="write">
+        <value eval="[ref('base.main_company')]"/>
+        <value eval="{
+            'currency_id': ref('base.JOD'),
+            'country_id': ref('base.jo')
+        }"/>
+    </function>
+
+</odoo>
